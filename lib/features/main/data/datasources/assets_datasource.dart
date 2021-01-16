@@ -18,17 +18,11 @@ class AssetsDatasourceImpl implements AssetsDatasource {
   @override
   Future<Either<Failure, List<ProductModel>>> jsonProducst() async {
     final string = await rootBundle.loadString(productsPatch);
-    // var body = jsonDecode(string);
 
-    List<ProductModel> listProducts = List.empty(growable: true);
-    json.decode(string).forEach((element) {
-      var a = ProductModel.fromMap(element);
-      listProducts.add(a);
+    final body = json.decode(string).map((x) {
+      return ProductModel.fromMap(x);
     });
-    // final body = json.decode(string).map((x) {
-    //   return ProductModel.fromMap(x);
-    // });
-    // List<ProductModel> listProducts = List<ProductModel>.from(body);
+    List<ProductModel> listProducts = List<ProductModel>.from(body);
 
     return Right(listProducts);
   }

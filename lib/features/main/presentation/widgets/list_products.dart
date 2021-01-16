@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/core/tools/img_string.dart';
 import 'package:showroom/features/main/presentation/bloc/main_bloc.dart';
 

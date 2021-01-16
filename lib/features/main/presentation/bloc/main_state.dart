@@ -2,9 +2,9 @@ part of 'main_bloc.dart';
 
 @immutable
 abstract class MainState {
-  List<Product> products;
-  Product selectedProduct;
-  Variant selectedVariant;
+  final List<Product> products;
+  final Product selectedProduct;
+  final Variant selectedVariant;
 
   MainState({
     @required this.products,
