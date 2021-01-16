@@ -26,7 +26,6 @@ class MainPage extends StatelessWidget {
                 create: (_) => getIt<MainBloc>()..add(LoadEvent()),
                 child: BlocListener<MainBloc, MainState>(
                   listenWhen: (previous, current) =>
-                      previous.clientId != current.clientId &&
                       (current?.clientId?.isNotEmpty ?? false),
                   listener: (context, state) {
                     var message = state?.clientId ?? "";
