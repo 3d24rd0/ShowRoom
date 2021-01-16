@@ -31,7 +31,8 @@ class MainPage extends StatelessWidget {
                   listener: (context, state) {
                     var message = state?.clientId ?? "";
                     if (message.isEmpty) return;
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    Scaffold.of(context).showSnackBar(SnackBar(
+                        //ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         //onVisible: () => Future.delayed(Duration(seconds: 3)),
                         backgroundColor: Color(0xff18469f),
                         content: SizedBox(
