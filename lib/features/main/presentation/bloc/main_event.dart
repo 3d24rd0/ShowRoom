@@ -13,6 +13,7 @@ class LoadEvent extends MainEvent {
       products: currentState.products,
       selectedProduct: currentState.selectedProduct,
       selectedVariant: currentState.selectedVariant,
+      clientId: currentState.clientId,
     );
   }
 }
@@ -71,5 +72,25 @@ class SetCurrentProductVariant extends MainEvent {
     if (variant != null) {
       yield currentState.copyWith(selectedVariant: variant);
     }
+  }
+}
+
+class ReadPhysicalClient extends MainEvent {
+  @override
+  Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
+    final clientId = await bloc.getClientIdUsecase(NoParams());
+    clientId.fold((l) => bloc.add(ReadPhysicalClient()),
+        (r) => bloc.add(SetPhysicalClient(r)));
+  }
+}
+
+class SetPhysicalClient extends MainEvent {
+  final String clientId;
+
+  SetPhysicalClient(this.clientId);
+
+  @override
+  Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
+    yield currentState.copyWith(clientId: clientId);
   }
 }

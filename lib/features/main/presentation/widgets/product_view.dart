@@ -77,7 +77,14 @@ class ProductView extends StatelessWidget {
                       ),
                     )
                     .toList(),
-              )
+              ),
+              FlatButton(
+                  onPressed: () => BlocProvider.of<MainBloc>(context)
+                      .add(ReadPhysicalClient()),
+                  child: Container(
+                    color: Colors.blue,
+                    child: Center(child: Text("Guardar")),
+                  ))
             ],
           );
         });
