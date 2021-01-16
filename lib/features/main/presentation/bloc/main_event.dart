@@ -9,6 +9,16 @@ class LoadEvent extends MainEvent {
   @override
   Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
     bloc.add(LoadProducts());
+
+    Future.delayed(const Duration(seconds: 2), () {
+      bloc.add(LoadDelayedEvent());
+    });
+  }
+}
+
+class LoadDelayedEvent extends MainEvent {
+  @override
+  Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
     yield InitializedState(
       products: currentState.products,
       selectedProduct: currentState.selectedProduct,
