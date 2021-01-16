@@ -33,7 +33,7 @@ class ProductView extends StatelessWidget {
                   ),
                   SizedBox(
                     height: DinamicSize.heightSize(context, 200),
-                    width: DinamicSize.widthSize(context, 200),
+                    width: DinamicSize.widthSize(context, 400),
                     child: ImgString(
                       defaultImgPath: 'assets/notfound.jpeg',
                       img: state?.selectedVariant?.img,
@@ -61,11 +61,12 @@ class ProductView extends StatelessWidget {
                 child: Divider(),
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: (state?.selectedProduct?.variants ?? List.empty())
                     .map(
                       (e) => SizedBox(
                         height: DinamicSize.heightSize(context, 90),
-                        width: DinamicSize.widthSize(context, 90),
+                        width: DinamicSize.widthSize(context, 180),
                         child: InkWell(
                           onTap: () => BlocProvider.of<MainBloc>(context)
                               .add(SetCurrentProductVariant(e)),
@@ -78,10 +79,16 @@ class ProductView extends StatelessWidget {
                     )
                     .toList(),
               ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Divider(),
+              ),
               FlatButton(
                   onPressed: () => BlocProvider.of<MainBloc>(context)
                       .add(ReadPhysicalClient()),
                   child: Container(
+                    height: DinamicSize.heightSize(context, 70),
+                    width: DinamicSize.widthSize(context, 300),
                     color: Colors.blue,
                     child: Center(child: Text("Guardar")),
                   ))
