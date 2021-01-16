@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/features/main/presentation/bloc/main_bloc.dart';
 import 'package:showroom/features/main/presentation/widgets/circular_indicator.dart';
+import 'package:showroom/features/main/presentation/widgets/list_products.dart';
+import 'package:showroom/features/main/presentation/widgets/product_view.dart';
 import 'package:showroom/service_locator.dart';
 
 class MainPage extends StatelessWidget {
@@ -26,37 +28,17 @@ class MainPage extends StatelessWidget {
                 buildWhen: (previous, current) =>
                     previous?.runtimeType != current?.runtimeType,
                 builder: (context, state) {
-                  final length = 1; // state?.products?.length ?? 0;
                   return Stack(
                     alignment: Alignment.center,
                     children: [
                       Row(
                         children: [
                           SizedBox(
-                            height: DinamicSize.heightSize(context, 550),
+                            // height: DinamicSize.heightSize(context, 550),
                             width: DinamicSize.heightSize(context, 550),
-                            child: Scrollbar(
-                              child: Visibility(
-                                visible: length > 0,
-                                child: ListView.builder(
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    //var product = state.products[index];
-                                    return Card(
-                                      child: ListTile(
-                                        leading: FlutterLogo(size: 72.0),
-                                        title: Text('Tile'),
-                                        subtitle: Text(
-                                            'A bbasdas  asdad adad adadaa d.'),
-                                        trailing: Icon(Icons.more_vert),
-                                        isThreeLine: true,
-                                      ),
-                                    );
-                                  },
-                                  itemCount: length,
-                                ),
-                                replacement: CircularIndicator(),
-                              ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ListProducts(),
                             ),
                           ),
                           Expanded(
@@ -64,6 +46,10 @@ class MainPage extends StatelessWidget {
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
                                 color: Colors.white,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20.0),
+                                  child: ProductView(),
+                                ),
                               ),
                             ),
                           )
@@ -71,10 +57,14 @@ class MainPage extends StatelessWidget {
                       ),
                       Visibility(
                         visible: state?.runtimeType != InitializedState,
-                        child: Expanded(
-                            child: Container(
-                                color: Colors.blue,
-                                child: Center(child: CircularIndicator()))),
+                        child: Positioned.fill(
+                          child: Container(
+                            color: Colors.blue,
+                            child: Center(
+                              child: CircularIndicator(),
+                            ),
+                          ),
+                        ),
                       )
                     ],
                   );
