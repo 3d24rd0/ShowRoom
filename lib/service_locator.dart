@@ -3,6 +3,7 @@ import 'package:showroom/features/main/data/datasources/assets_datasource.dart';
 import 'package:showroom/features/main/data/datasources/nfc_datasource.dart';
 import 'package:showroom/features/main/data/repositories/product_repository_asset_json.dart';
 import 'package:showroom/features/main/domain/repositories/product_repository.dart';
+import 'package:showroom/features/main/domain/usecases/get_client_id_usecase.dart';
 import 'package:showroom/features/main/domain/usecases/get_products_usecase.dart';
 import 'package:showroom/features/main/presentation/bloc/main_bloc.dart';
 
@@ -21,6 +22,8 @@ void _mainFeature() {
   // Use cases
   getIt.registerLazySingleton<GetProductsUsecase>(
       () => GetProductsUsecase(repository: getIt()));
+  getIt.registerLazySingleton<GetClientIdUsecase>(
+      () => GetClientIdUsecase(repository: getIt()));
   // Repository
   getIt.registerLazySingleton<ProductRepository>(() =>
       ProductRepositoryAssetJson(
