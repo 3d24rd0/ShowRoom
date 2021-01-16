@@ -10,7 +10,8 @@ class ListProducts extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<MainBloc, MainState>(
         buildWhen: (previous, current) =>
-            previous.products != current?.products,
+            previous.products != current?.products ||
+            previous.selectedProduct != current?.selectedProduct,
         builder: (context, state) {
           final length = state?.products?.length ?? 0;
           return Scrollbar(
@@ -22,6 +23,7 @@ class ListProducts extends StatelessWidget {
 
                   return Card(
                     child: ListTile(
+                      selected: product == state.selectedProduct,
                       onTap: () => BlocProvider.of<MainBloc>(context)
                           .add(SetCurrentProduct(product)),
                       leading: ImgString(
