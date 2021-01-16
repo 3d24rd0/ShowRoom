@@ -57,7 +57,8 @@ class SetCurrentProduct extends MainEvent {
   @override
   Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
     if (product != null) {
-      yield currentState.copyWith(selectedProduct: product);
+      yield currentState.copyWith(
+          selectedProduct: product, selectedVariant: product?.variants?.first);
     }
   }
 }
