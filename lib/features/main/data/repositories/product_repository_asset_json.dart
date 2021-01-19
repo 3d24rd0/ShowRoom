@@ -31,8 +31,7 @@ class ProductRepositoryAssetJson extends ProductRepository {
   @override
   Future<Either<Failure, String>> getClientId() async {
     try {
-      final clientId = await _nfcDatasource.readCard();
-      return clientId;
+      return _nfcDatasource.readCard();
     } catch (e) {
       return Left(ServerFailure());
     }

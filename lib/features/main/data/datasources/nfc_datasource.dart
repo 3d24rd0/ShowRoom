@@ -10,11 +10,12 @@ abstract class NfcDatasource {
 class NfcDatasourceExternalProgress implements NfcDatasource {
   @override
   Future<Either<Failure, String>> readCard() async {
-    ProcessResult result = await Process.run('readNFC', List.empty());
-    if (result.exitCode == 0) {
-      return Right(result.stdout);
-    } else {
-      return Left(BadProgress());
-    }
+    return Process.run('readNFC', List.empty()).then((result) {
+      if (result.exitCode == 0) {
+        return Right(result.stdout);
+      } else {
+        return Left(BadProgress());
+      }
+    });
   }
 }

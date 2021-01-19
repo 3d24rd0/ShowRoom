@@ -12,8 +12,6 @@ class LoadEvent extends MainEvent {
 
     Future.delayed(const Duration(seconds: 2), () {
       bloc.add(LoadDelayedEvent());
-    });
-    Future.delayed(const Duration(seconds: 1), () {
       bloc.add(ReadPhysicalClient());
     });
   }
@@ -93,17 +91,18 @@ class SetCurrentProductVariant extends MainEvent {
 class ReadPhysicalClient extends MainEvent {
   @override
   Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
-    final clientId = await bloc.getClientIdUsecase(NoParams());
-    clientId.fold((l) {
-      Future.delayed(const Duration(seconds: 1), () {
-        bloc.add(ReadPhysicalClient());
-      });
-    }, (r) {
-      bloc.add(SetPhysicalClient(r));
+    bloc.getClientIdUsecase(NoParams()).then((clientId) {
+      clientId.fold((l) {
+        Future.delayed(const Duration(seconds: 1), () {
+          bloc.add(ReadPhysicalClient());
+        });
+      }, (r) {
+        bloc.add(SetPhysicalClient(r));
 
-      // Future.delayed(const Duration(seconds: 1), () {
-      //   bloc.add(ReadPhysicalClient());
-      // });
+        Future.delayed(const Duration(seconds: 1), () {
+          bloc.add(ReadPhysicalClient());
+        });
+      });
     });
   }
 }
