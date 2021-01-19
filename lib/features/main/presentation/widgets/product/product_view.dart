@@ -243,32 +243,33 @@ class _Variants extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: variants?.map((e) {
-              return FlatButton(
-                padding: EdgeInsets.only(
-                    right: DinamicSize.widthSize(context, 20),
-                    left: DinamicSize.widthSize(context, 20)),
-                onPressed: () => BlocProvider.of<MainBloc>(context)
-                    .add(SetCurrentProductVariant(e)),
-                child: Column(
-                  children: [
-                    SizedBox(
-                        height: DinamicSize.heightSize(context, 60),
-                        width: DinamicSize.widthSize(context, 60),
-                        child: Image.asset(
-                          "assets/" + (e?.img ?? "notfound.jpeg"),
-                          fit: BoxFit.cover,
-                        )),
-                    Text(
-                      e.name.toUpperCase(),
-                      style: TextStyle(
-                        color: Color(0xFF000000),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w300,
-                        fontStyle: FontStyle.normal,
-                        letterSpacing: 0.24,
-                      ),
-                    )
-                  ],
+              return Padding(
+                padding:
+                    EdgeInsets.only(right: DinamicSize.widthSize(context, 40)),
+                child: InkWell(
+                  onTap: () => BlocProvider.of<MainBloc>(context)
+                      .add(SetCurrentProductVariant(e)),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                          height: DinamicSize.heightSize(context, 60),
+                          width: DinamicSize.widthSize(context, 60),
+                          child: Image.asset(
+                            "assets/" + (e?.img ?? "notfound.jpeg"),
+                            fit: BoxFit.cover,
+                          )),
+                      Text(
+                        e.name.toUpperCase(),
+                        style: TextStyle(
+                          color: Color(0xFF000000),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w300,
+                          fontStyle: FontStyle.normal,
+                          letterSpacing: 0.24,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               );
             })?.toList() ??
