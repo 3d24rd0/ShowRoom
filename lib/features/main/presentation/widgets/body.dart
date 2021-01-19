@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/features/main/presentation/bloc/main_bloc.dart';
 
-import 'list_products.dart';
-import 'product_view.dart';
+import 'product/product_list.dart';
+import 'product/product_view.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -22,7 +22,7 @@ class Body extends StatelessWidget {
               Container(
                 color: Color(0xffF2F2F2),
                 width: DinamicSize.heightSize(context, 389),
-                child: ListProducts(),
+                child: ProductList(),
               ),
               Expanded(
                 child: Padding(

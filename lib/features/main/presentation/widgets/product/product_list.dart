@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
-import 'package:showroom/core/tools/img_string.dart';
 import 'package:showroom/features/main/presentation/bloc/main_bloc.dart';
 
-import 'circular_indicator.dart';
+import '../circular_indicator.dart';
 
-class ListProducts extends StatelessWidget {
+class ProductList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MainBloc, MainState>(

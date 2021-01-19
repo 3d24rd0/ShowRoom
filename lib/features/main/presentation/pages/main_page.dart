@@ -4,8 +4,6 @@ import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/features/main/presentation/bloc/main_bloc.dart';
 import 'package:showroom/features/main/presentation/widgets/body.dart';
 import 'package:showroom/features/main/presentation/widgets/circular_indicator.dart';
-import 'package:showroom/features/main/presentation/widgets/list_products.dart';
-import 'package:showroom/features/main/presentation/widgets/product_view.dart';
 import 'package:showroom/service_locator.dart';
 
 class MainPage extends StatelessWidget {
