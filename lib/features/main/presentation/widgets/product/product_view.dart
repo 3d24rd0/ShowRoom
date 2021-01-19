@@ -57,7 +57,10 @@ class ProductView extends StatelessWidget {
                           esp: "colores",
                           eng: "colors",
                         ),
-                        _Variants(variants: state?.selectedProduct?.variants)
+                        _Variants(
+                          variants: state?.selectedProduct?.variants,
+                          currentVariant: state?.selectedVariant,
+                        )
                       ],
                     ),
                   ],
@@ -234,8 +237,11 @@ class _TitleDivider extends StatelessWidget {
 
 class _Variants extends StatelessWidget {
   final List<Variant> variants;
+  final Variant currentVariant;
 
-  const _Variants({Key key, @required this.variants}) : super(key: key);
+  const _Variants(
+      {Key key, @required this.variants, @required this.currentVariant})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Visibility(
@@ -247,17 +253,35 @@ class _Variants extends StatelessWidget {
                 padding:
                     EdgeInsets.only(right: DinamicSize.widthSize(context, 40)),
                 child: InkWell(
-                  onTap: () => BlocProvider.of<MainBloc>(context)
-                      .add(SetCurrentProductVariant(e)),
+                  onTap: () => e?.name != currentVariant?.name
+                      ? BlocProvider.of<MainBloc>(context)
+                          .add(SetCurrentProductVariant(e))
+                      : null,
                   child: Column(
                     children: [
-                      SizedBox(
-                          height: DinamicSize.heightSize(context, 60),
-                          width: DinamicSize.widthSize(context, 60),
-                          child: Image.asset(
-                            "assets/" + (e?.img ?? "notfound.jpeg"),
-                            fit: BoxFit.cover,
-                          )),
+                      Visibility(
+                        visible: e?.name == currentVariant?.name,
+                        child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Color(0xFFB42E2D),
+                                width: 5,
+                              ),
+                            ),
+                            height: DinamicSize.heightSize(context, 60),
+                            width: DinamicSize.widthSize(context, 60),
+                            child: Image.asset(
+                              "assets/" + (e?.img ?? "notfound.jpeg"),
+                              fit: BoxFit.cover,
+                            )),
+                        replacement: SizedBox(
+                            height: DinamicSize.heightSize(context, 60),
+                            width: DinamicSize.widthSize(context, 60),
+                            child: Image.asset(
+                              "assets/" + (e?.img ?? "notfound.jpeg"),
+                              fit: BoxFit.cover,
+                            )),
+                      ),
                       Text(
                         e.name.toUpperCase(),
                         style: TextStyle(
