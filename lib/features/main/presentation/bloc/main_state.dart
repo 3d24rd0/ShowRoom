@@ -6,12 +6,14 @@ abstract class MainState {
   final Product selectedProduct;
   final Variant selectedVariant;
   final String clientId;
+  final String message;
 
   MainState({
     @required this.products,
     @required this.selectedProduct,
     @required this.selectedVariant,
     @required this.clientId,
+    @required this.message,
   });
 
   copyWith({
@@ -19,6 +21,7 @@ abstract class MainState {
     Product selectedProduct,
     Variant selectedVariant,
     String clientId,
+    String message,
   });
 }
 
@@ -29,6 +32,7 @@ class UninitializedState extends MainState {
           selectedProduct: null,
           selectedVariant: null,
           clientId: "",
+          message: "",
         );
 
   UninitializedState.withData({
@@ -36,11 +40,13 @@ class UninitializedState extends MainState {
     @required Product selectedProduct,
     @required Variant selectedVariant,
     @required String clientId,
+    @required String message,
   }) : super(
           products: products,
           selectedProduct: selectedProduct,
           selectedVariant: selectedVariant,
           clientId: clientId,
+          message: message,
         );
 
   @override
@@ -49,12 +55,14 @@ class UninitializedState extends MainState {
     Product selectedProduct,
     Variant selectedVariant,
     String clientId,
+    String message,
   }) =>
       UninitializedState.withData(
         products: products ?? this.products,
         selectedProduct: selectedProduct ?? this.selectedProduct,
         selectedVariant: selectedVariant ?? this.selectedVariant,
         clientId: clientId ?? this.clientId,
+        message: message ?? this.message,
       );
 }
 
@@ -64,11 +72,13 @@ class InitializedState extends MainState {
     @required Product selectedProduct,
     @required Variant selectedVariant,
     @required String clientId,
+    @required String message,
   }) : super(
           products: products,
           selectedProduct: selectedProduct,
           selectedVariant: selectedVariant,
           clientId: clientId,
+          message: message,
         );
 
   @override
@@ -77,11 +87,13 @@ class InitializedState extends MainState {
     Product selectedProduct,
     Variant selectedVariant,
     String clientId,
+    String message,
   }) =>
       InitializedState(
         products: products ?? this.products,
         selectedProduct: selectedProduct ?? this.selectedProduct,
         selectedVariant: selectedVariant ?? this.selectedVariant,
         clientId: clientId ?? this.clientId,
+        message: message ?? this.message,
       );
 }
