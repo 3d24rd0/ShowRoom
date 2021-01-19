@@ -16,6 +16,26 @@ class Body extends StatelessWidget {
     return Column(
       children: [
         _Header(),
+        Expanded(
+          child: Row(
+            children: [
+              Container(
+                color: Color(0xffF2F2F2),
+                width: DinamicSize.heightSize(context, 389),
+                child: ListProducts(),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: ProductView(),
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),
@@ -46,8 +66,8 @@ class _Header extends StatelessWidget {
                 "Collections".toUpperCase(),
                 style: TextStyle(
                   color: Color(0xFFFFFFFF),
-                  fontSize: 22,
-                  fontWeight: FontWeight.w400,
+                  fontSize: 28,
+                  fontWeight: FontWeight.w300,
                   fontStyle: FontStyle.italic,
                   letterSpacing: 0.24,
                 ),
@@ -72,8 +92,8 @@ class _Header extends StatelessWidget {
                           maxLines: 1,
                           style: TextStyle(
                             color: Color(0xFFFFFFFF),
-                            fontSize: 77,
-                            fontWeight: FontWeight.w600,
+                            fontSize: 70,
+                            fontWeight: FontWeight.w300,
                             fontStyle: FontStyle.normal,
                             letterSpacing: 0.24,
                           ),
@@ -84,8 +104,8 @@ class _Header extends StatelessWidget {
                     style: TextStyle(
                       color: Color(0xFF000000),
                       fontSize: 17,
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w300,
+                      fontStyle: FontStyle.italic,
                       letterSpacing: 0.24,
                     ),
                   ),
