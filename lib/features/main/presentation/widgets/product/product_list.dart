@@ -23,11 +23,12 @@ class ProductList extends StatelessWidget {
                 var product = state?.products[index];
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: FlatButton(
-                      onPressed: () => BlocProvider.of<MainBloc>(context)
+                  child: InkWell(
+                      onTap: () => BlocProvider.of<MainBloc>(context)
                           .add(SetCurrentProduct(product)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
                             product.name.toUpperCase(),
@@ -36,35 +37,25 @@ class ProductList extends StatelessWidget {
                               color: product == state.selectedProduct
                                   ? Color(0xFFB42E2D)
                                   : Color(0xFF000000),
-                              fontSize: 26,
+                              fontSize: 40,
                               fontWeight: FontWeight.w400,
                               fontStyle: FontStyle.normal,
                               letterSpacing: 0.24,
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: DinamicSize.heightSize(context, 8),
-                                bottom: DinamicSize.heightSize(context, 8)),
-                            child: Container(
-                              color: product == state.selectedProduct
-                                  ? Color(0xFFB42E2D)
-                                  : Color(0xFF000000),
-                              height: DinamicSize.heightSize(context,
-                                  product == state.selectedProduct ? 4 : 1),
+                          Visibility(
+                            visible: product == state.selectedProduct,
+                            child: Center(
+                              child: Icon(
+                                Icons.arrow_right,
+                                color: Color(0xFFB42E2D),
+                                size: DinamicSize.heightSize(context, 40),
+                              ),
                             ),
-                          ),
-                          // Text(
-                          //   product.name,
-                          //   textAlign: TextAlign.right,
-                          //   style: TextStyle(
-                          //     color: Color(0xFF000000),
-                          //     fontSize: 15,
-                          //     fontWeight: FontWeight.w400,
-                          //     fontStyle: FontStyle.normal,
-                          //     letterSpacing: 0.24,
-                          //   ),
-                          // ),
+                            replacement: SizedBox(
+                              width: DinamicSize.heightSize(context, 40),
+                            ),
+                          )
                         ],
                       )),
                 );
