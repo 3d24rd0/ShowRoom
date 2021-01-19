@@ -12,9 +12,9 @@ class LoadEvent extends MainEvent {
 
     Future.delayed(const Duration(seconds: 2), () {
       bloc.add(LoadDelayedEvent());
-      Future.delayed(const Duration(seconds: 1), () {
-        bloc.add(ReadPhysicalClient());
-      });
+    });
+    Future.delayed(const Duration(seconds: 1), () {
+      bloc.add(ReadPhysicalClient());
     });
   }
 }
@@ -101,9 +101,9 @@ class ReadPhysicalClient extends MainEvent {
     }, (r) {
       bloc.add(SetPhysicalClient(r));
 
-      Future.delayed(const Duration(seconds: 1), () {
-        bloc.add(ReadPhysicalClient());
-      });
+      // Future.delayed(const Duration(seconds: 1), () {
+      //   bloc.add(ReadPhysicalClient());
+      // });
     });
   }
 }
