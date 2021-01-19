@@ -14,29 +14,34 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _Header(),
         Expanded(
-          child: Row(
-            children: [
-              Container(
-                color: Color(0xffF2F2F2),
-                width: DinamicSize.heightSize(context, 389),
-                child: ProductList(),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+          child: Container(
+            color: Color(0xffF2F2F2),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: DinamicSize.widthSize(context, 389),
+                  child: ProductList(),
+                ),
+                Expanded(
                   child: Container(
                     color: Colors.white,
                     child: Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: EdgeInsets.only(
+                          top: DinamicSize.heightSize(context, 60),
+                          left: DinamicSize.widthSize(context, 60)),
                       child: ProductView(),
                     ),
                   ),
                 ),
-              )
-            ],
+              ],
+            ),
           ),
         ),
       ],
@@ -60,7 +65,7 @@ class _Header extends StatelessWidget {
           Container(
             color: Color(0xffC2C2C2),
             height: DinamicSize.heightSize(context, 181),
-            width: DinamicSize.heightSize(context, 389),
+            width: DinamicSize.widthSize(context, 389),
             child: Center(
               child: Text(
                 "Collections".toUpperCase(),
