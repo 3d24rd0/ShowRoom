@@ -24,7 +24,8 @@ class ProductList extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: FlatButton(
-                      onPressed: () {},
+                      onPressed: () => BlocProvider.of<MainBloc>(context)
+                          .add(SetCurrentProduct(product)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [

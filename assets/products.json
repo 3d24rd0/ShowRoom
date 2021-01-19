@@ -52,38 +52,38 @@
                 "name": "green",
                 "measures": [
                     {
-                        "ref": "g-5955",
+                        "ref": "g-5455",
                         "height": 100,
                         "width": 100,
                         "description": ""
                     },
                     {
-                        "ref": "g-5755",
+                        "ref": "g-5885",
                         "height": 50,
                         "width": 100,
                         "description": ""
                     },
                     {
-                        "ref": "g-5255",
+                        "ref": "g-5885",
                         "height": 60,
                         "width": 60,
                         "description": ""
                     },
                     {
-                        "ref": "g-5355",
+                        "ref": "g-5995",
                         "height": 30,
                         "width": 60,
                         "description": ""
                     },
                     {
-                        "ref": "G-5545",
+                        "ref": "G-5005",
                         "height": 60,
                         "width": 60,
                         "img": "hex.png",
                         "description": ""
                     },
                     {
-                        "ref": "g-555/7254",
+                        "ref": "g-585/7664",
                         "height": 29.75,
                         "width": 29.75,
                         "img": "mesh.png",
@@ -230,7 +230,7 @@
         "description": "Revestimiento fabricado en gres de pasta roja con acabado en color blanco mate imitando a baldosa de cemento. Su formato de 8 mm de espesor es ideal para renovar la estética de las paredes en cocinas y baños. Conseguirás en las paredes un efecto liso con bordes rectos que otorgan continuidad y elegancia. Cada paquete contiene 8 baldosas con las que poder dar un nuevo aire a los espacios elegidos. Medidas: 31,6 x 60 cm (ancho x largo)",
         "variants": [
             {
-                "img": "1.png",
+                "img": "2.png",
                 "name": "ybory",
                 "measures": [
                     {
@@ -280,7 +280,7 @@
         "description": "Revestimiento fabricado en gres de pasta roja con acabado en color blanco mate imitando a baldosa de cemento. Su formato de 8 mm de espesor es ideal para renovar la estética de las paredes en cocinas y baños. Conseguirás en las paredes un efecto liso con bordes rectos que otorgan continuidad y elegancia. Cada paquete contiene 8 baldosas con las que poder dar un nuevo aire a los espacios elegidos. Medidas: 31,6 x 60 cm (ancho x largo)",
         "variants": [
             {
-                "img": "1.png",
+                "img": "3.png",
                 "name": "ybory",
                 "measures": [
                     {
@@ -330,7 +330,7 @@
         "description": "Revestimiento fabricado en gres de pasta roja con acabado en color blanco mate imitando a baldosa de cemento. Su formato de 8 mm de espesor es ideal para renovar la estética de las paredes en cocinas y baños. Conseguirás en las paredes un efecto liso con bordes rectos que otorgan continuidad y elegancia. Cada paquete contiene 8 baldosas con las que poder dar un nuevo aire a los espacios elegidos. Medidas: 31,6 x 60 cm (ancho x largo)",
         "variants": [
             {
-                "img": "1.png",
+                "img": "4.png",
                 "name": "ybory",
                 "measures": [
                     {
