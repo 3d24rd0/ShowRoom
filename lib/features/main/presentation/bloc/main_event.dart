@@ -99,7 +99,7 @@ class ReadPhysicalClient extends MainEvent {
       }, (r) {
         bloc.add(SetPhysicalClient(r));
 
-        Future.delayed(const Duration(seconds: 1), () {
+        Future.delayed(const Duration(seconds: 2), () {
           bloc.add(ReadPhysicalClient());
         });
       });
@@ -114,8 +114,12 @@ class SetPhysicalClient extends MainEvent {
 
   @override
   Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
-    yield currentState.copyWith(
-        clientId: clientId,
-        message: clientId + currentState?.selectedProduct?.name);
+    final message = (clientId +
+            " - " +
+            currentState?.selectedProduct?.name +
+            " - " +
+            currentState?.selectedVariant.name)
+        .replaceAll(RegExp(r'\n'), "");
+    yield currentState.copyWith(clientId: clientId, message: message);
   }
 }

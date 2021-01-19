@@ -25,11 +25,11 @@ class MainPage extends StatelessWidget {
                 create: (_) => getIt<MainBloc>()..add(LoadEvent()),
                 child: BlocListener<MainBloc, MainState>(
                   listenWhen: (previous, current) =>
-                      (current?.message?.isEmpty ?? false) &&
-                      current.message != previous.message,
+                      previous.message != current.message &&
+                      (current?.message?.isNotEmpty ?? false),
                   listener: (context, state) {
-                    var message = state?.clientId ?? "";
-                    if (message.isEmpty) return;
+                    var message = state?.message ?? "";
+
                     Scaffold.of(context).showSnackBar(SnackBar(
                         //ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         //onVisible: () => Future.delayed(Duration(seconds: 3)),
