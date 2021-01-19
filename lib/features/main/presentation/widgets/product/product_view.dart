@@ -243,9 +243,12 @@ class _Variants extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: variants?.map((e) {
-              return Padding(
-                padding:
-                    EdgeInsets.only(right: DinamicSize.widthSize(context, 40)),
+              return FlatButton(
+                padding: EdgeInsets.only(
+                    right: DinamicSize.widthSize(context, 20),
+                    left: DinamicSize.widthSize(context, 20)),
+                onPressed: () => BlocProvider.of<MainBloc>(context)
+                    .add(SetCurrentProductVariant(e)),
                 child: Column(
                   children: [
                     SizedBox(
