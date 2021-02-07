@@ -1,6 +1,5 @@
 import 'package:get_it/get_it.dart';
 import 'package:showroom/features/products/data/datasources/assets_datasource.dart';
-import 'package:showroom/features/products/data/datasources/nfc_datasource.dart';
 import 'package:showroom/features/products/data/repositories/product_repository_asset_json.dart';
 import 'package:showroom/features/products/domain/repositories/product_repository.dart';
 import 'package:showroom/features/products/domain/usecases/get_products_usecase.dart';
@@ -31,7 +30,4 @@ void _mainFeature() {
   // Data sources
   getIt.registerLazySingleton<AssetsDatasource>(
       () => AssetsDatasourceImpl(productsPatch: 'assets/products.json'));
-
-  getIt.registerLazySingleton<NfcDatasource>(
-      () => NfcDatasourceExternalProgress());
 }

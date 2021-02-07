@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:showroom/core/domain/entities/failures.dart';
-import 'package:showroom/features/main/data/models/product_model.dart';
+import 'package:showroom/features/products/data/models/product_model.dart';
 
 abstract class AssetsDatasource {
   Future<Either<Failure, List<ProductModel>>> jsonProducst();

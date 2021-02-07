@@ -2,24 +2,36 @@ part of 'product_bloc.dart';
 
 @immutable
 abstract class ProductEvent {
-  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc});
+  Stream<ProductState> applyAsync(
+      {ProductState currentState, ProductBloc bloc});
 }
 
 class LoadEvent extends ProductEvent {
   @override
-  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
+  Stream<ProductState> applyAsync(
+      {ProductState currentState, ProductBloc bloc}) async* {
     bloc.add(LoadProducts());
+
+    final nfcProcess = ProgressLoop(
+      executable: "readNFC",
+      arguments: List.empty(),
+      loop: Duration(seconds: 2),
+    );
+    bloc._nfcSubscription = nfcProcess.stdout.listen((event) {
+      bloc.add(SetPhysicalClient(event));
+    });
+    nfcProcess.start();
 
     Future.delayed(const Duration(seconds: 2), () {
       bloc.add(LoadDelayedEvent());
-      bloc.add(ReadPhysicalClient());
     });
   }
 }
 
 class LoadDelayedEvent extends ProductEvent {
   @override
-  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
+  Stream<ProductState> applyAsync(
+      {ProductState currentState, ProductBloc bloc}) async* {
     yield InitializedState(
       products: currentState.products,
       selectedProduct: currentState.selectedProduct,
@@ -32,7 +44,8 @@ class LoadDelayedEvent extends ProductEvent {
 
 class LoadProducts extends ProductEvent {
   @override
-  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
+  Stream<ProductState> applyAsync(
+      {ProductState currentState, ProductBloc bloc}) async* {
     final products = await bloc.getProductsUsecase(NoParams());
     products.fold(
         (l) => Future.delayed(const Duration(seconds: 2), () {
@@ -48,7 +61,8 @@ class SetProducts extends ProductEvent {
   SetProducts(this.products);
 
   @override
-  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
+  Stream<ProductState> applyAsync(
+      {ProductState currentState, ProductBloc bloc}) async* {
     if (products.isNotEmpty) {
       yield currentState.copyWith(
         products: products,
@@ -67,7 +81,8 @@ class SetCurrentProduct extends ProductEvent {
   SetCurrentProduct(this.product);
 
   @override
-  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
+  Stream<ProductState> applyAsync(
+      {ProductState currentState, ProductBloc bloc}) async* {
     if (product != null) {
       yield currentState.copyWith(
           selectedProduct: product, selectedVariant: product?.variants?.first);
@@ -81,29 +96,11 @@ class SetCurrentProductVariant extends ProductEvent {
   SetCurrentProductVariant(this.variant);
 
   @override
-  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
+  Stream<ProductState> applyAsync(
+      {ProductState currentState, ProductBloc bloc}) async* {
     if (variant != null) {
       yield currentState.copyWith(selectedVariant: variant);
     }
-  }
-}
-
-class ReadPhysicalClient extends ProductEvent {
-  @override
-  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
-    bloc.getClientIdUsecase(NoParams()).then((clientId) {
-      clientId.fold((l) {
-        Future.delayed(const Duration(seconds: 1), () {
-          bloc.add(ReadPhysicalClient());
-        });
-      }, (r) {
-        bloc.add(SetPhysicalClient(r));
-
-        Future.delayed(const Duration(seconds: 2), () {
-          bloc.add(ReadPhysicalClient());
-        });
-      });
-    });
   }
 }
 
@@ -113,12 +110,13 @@ class SetPhysicalClient extends ProductEvent {
   SetPhysicalClient(this.clientId);
 
   @override
-  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
+  Stream<ProductState> applyAsync(
+      {ProductState currentState, ProductBloc bloc}) async* {
     final message = (clientId +
             " - " +
             currentState?.selectedProduct?.name +
             " - " +
-            currentState?.selectedVariant.name)
+            currentState?.selectedVariant?.name)
         .replaceAll(RegExp(r'\n'), "");
     yield currentState.copyWith(clientId: clientId, message: message);
   }
