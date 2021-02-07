@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
-import 'package:showroom/features/main/presentation/bloc/main_bloc.dart';
+import 'package:showroom/features/products/presentation/bloc/product_bloc.dart';
 
-import 'product/product_list.dart';
-import 'product/product_view.dart';
+import 'product_list.dart';
+import 'product_view.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -87,7 +87,7 @@ class _Header extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  BlocBuilder<MainBloc, MainState>(
+                  BlocBuilder<ProductBloc, ProductState>(
                       buildWhen: (previous, current) =>
                           previous?.selectedProduct != current?.selectedProduct,
                       builder: (context, state) {

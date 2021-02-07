@@ -1,11 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:showroom/features/main/presentation/pages/main_page.dart';
+import 'package:showroom/features/products/presentation/pages/product_page.dart';
 import 'package:showroom/simple_bloc_observer.dart';
-
-import 'features/main/presentation/widgets/circular_indicator.dart';
+import 'features/products/presentation/widgets/circular_indicator.dart';
 import 'service_locator.dart';
 
 main() async {
@@ -37,23 +34,8 @@ class _MyAppState extends State<MyApp> {
       // navigatorKey: getIt<RouterBloc>().navigatorKey,
       // initialRoute: CustomRouter.login,
       // onGenerateRoute: (settings) => CustomRouter.generateRoute(settings),
-      home: MainPage(),
+      home: ProductPage(),
     );
   }
 
-  @override
-  void initState() {
-    super.initState();
-    // Remove `loading` div
-    // final loader = document.getElementsByClassName('loading');
-    // if (loader.isNotEmpty) {
-    //   loader.first.remove();
-    // }
-  }
-
-  @override
-  void dispose() {
-    // Hive.close();
-    super.dispose();
-  }
 }

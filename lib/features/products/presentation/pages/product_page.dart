@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
-import 'package:showroom/features/main/presentation/bloc/main_bloc.dart';
-import 'package:showroom/features/main/presentation/widgets/body.dart';
-import 'package:showroom/features/main/presentation/widgets/circular_indicator.dart';
+import 'package:showroom/features/products/presentation/bloc/product_bloc.dart';
+import 'package:showroom/features/products/presentation/widgets/body.dart';
+import 'package:showroom/features/products/presentation/widgets/circular_indicator.dart';
 import 'package:showroom/service_locator.dart';
 
-class MainPage extends StatelessWidget {
+class ProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -21,9 +21,9 @@ class MainPage extends StatelessWidget {
           body: SafeArea(
             child: ExcludeSemantics(
               excluding: true,
-              child: BlocProvider<MainBloc>(
-                create: (_) => getIt<MainBloc>()..add(LoadEvent()),
-                child: BlocListener<MainBloc, MainState>(
+              child: BlocProvider<ProductBloc>(
+                create: (_) => getIt<ProductBloc>()..add(LoadEvent()),
+                child: BlocListener<ProductBloc, ProductState>(
                   listenWhen: (previous, current) =>
                       previous.message != current.message &&
                       (current?.message?.isNotEmpty ?? false),
@@ -52,7 +52,7 @@ class MainPage extends StatelessWidget {
                           ),
                         )));
                   },
-                  child: BlocBuilder<MainBloc, MainState>(
+                  child: BlocBuilder<ProductBloc, ProductState>(
                     buildWhen: (previous, current) =>
                         previous?.runtimeType != current?.runtimeType,
                     builder: (context, state) {

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
-import 'package:showroom/features/main/domain/entities/measure.dart';
-import 'package:showroom/features/main/domain/entities/variant.dart';
-import 'package:showroom/features/main/presentation/bloc/main_bloc.dart';
+import 'package:showroom/features/products/domain/entities/measure.dart';
+import 'package:showroom/features/products/domain/entities/variant.dart';
+import 'package:showroom/features/products/presentation/bloc/product_bloc.dart';
 
-import '../circular_indicator.dart';
+import 'circular_indicator.dart';
 
 class ProductView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MainBloc, MainState>(
+    return BlocBuilder<ProductBloc, ProductState>(
         buildWhen: (previous, current) =>
             previous.selectedProduct != current?.selectedProduct ||
             previous.selectedVariant != current.selectedVariant,
@@ -254,7 +254,7 @@ class _Variants extends StatelessWidget {
                     EdgeInsets.only(right: DinamicSize.widthSize(context, 40)),
                 child: InkWell(
                   onTap: () => e?.name != currentVariant?.name
-                      ? BlocProvider.of<MainBloc>(context)
+                      ? BlocProvider.of<ProductBloc>(context)
                           .add(SetCurrentProductVariant(e))
                       : null,
                   child: Column(

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:meta/meta.dart';
-import 'package:showroom/features/main/domain/entities/measure.dart';
+import 'package:showroom/features/products/domain/entities/measure.dart';
 
 class MeasureModel extends Measure {
   MeasureModel({

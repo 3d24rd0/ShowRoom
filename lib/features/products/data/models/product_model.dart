@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:meta/meta.dart';
-import 'package:showroom/features/main/domain/entities/product.dart';
-import 'package:showroom/features/main/domain/entities/variant.dart';
+import 'package:showroom/features/products/domain/entities/product.dart';
+import 'package:showroom/features/products/domain/entities/variant.dart';
 
 import 'variant_model.dart';
 

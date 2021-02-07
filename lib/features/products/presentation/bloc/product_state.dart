@@ -1,14 +1,14 @@
-part of 'main_bloc.dart';
+part of 'product_bloc.dart';
 
 @immutable
-abstract class MainState {
+abstract class ProductState {
   final List<Product> products;
   final Product selectedProduct;
   final Variant selectedVariant;
   final String clientId;
   final String message;
 
-  MainState({
+  ProductState({
     @required this.products,
     @required this.selectedProduct,
     @required this.selectedVariant,
@@ -25,7 +25,7 @@ abstract class MainState {
   });
 }
 
-class UninitializedState extends MainState {
+class UninitializedState extends ProductState {
   UninitializedState()
       : super(
           products: null,
@@ -66,7 +66,7 @@ class UninitializedState extends MainState {
       );
 }
 
-class InitializedState extends MainState {
+class InitializedState extends ProductState {
   InitializedState({
     @required List<Product> products,
     @required Product selectedProduct,

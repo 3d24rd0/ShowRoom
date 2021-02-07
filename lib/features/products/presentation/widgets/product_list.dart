@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
-import 'package:showroom/features/main/presentation/bloc/main_bloc.dart';
+import 'package:showroom/features/products/presentation/bloc/product_bloc.dart';
 
-import '../circular_indicator.dart';
+import 'circular_indicator.dart';
 
 class ProductList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MainBloc, MainState>(
+    return BlocBuilder<ProductBloc, ProductState>(
         buildWhen: (previous, current) =>
             previous.products != current?.products ||
             previous.selectedProduct != current?.selectedProduct,
@@ -24,7 +24,7 @@ class ProductList extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
-                      onTap: () => BlocProvider.of<MainBloc>(context)
+                      onTap: () => BlocProvider.of<ProductBloc>(context)
                           .add(SetCurrentProduct(product)),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,

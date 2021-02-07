@@ -1,13 +1,13 @@
-part of 'main_bloc.dart';
+part of 'product_bloc.dart';
 
 @immutable
-abstract class MainEvent {
-  Stream<MainState> applyAsync({MainState currentState, MainBloc bloc});
+abstract class ProductEvent {
+  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc});
 }
 
-class LoadEvent extends MainEvent {
+class LoadEvent extends ProductEvent {
   @override
-  Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
+  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
     bloc.add(LoadProducts());
 
     Future.delayed(const Duration(seconds: 2), () {
@@ -17,9 +17,9 @@ class LoadEvent extends MainEvent {
   }
 }
 
-class LoadDelayedEvent extends MainEvent {
+class LoadDelayedEvent extends ProductEvent {
   @override
-  Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
+  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
     yield InitializedState(
       products: currentState.products,
       selectedProduct: currentState.selectedProduct,
@@ -30,9 +30,9 @@ class LoadDelayedEvent extends MainEvent {
   }
 }
 
-class LoadProducts extends MainEvent {
+class LoadProducts extends ProductEvent {
   @override
-  Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
+  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
     final products = await bloc.getProductsUsecase(NoParams());
     products.fold(
         (l) => Future.delayed(const Duration(seconds: 2), () {
@@ -42,13 +42,13 @@ class LoadProducts extends MainEvent {
   }
 }
 
-class SetProducts extends MainEvent {
+class SetProducts extends ProductEvent {
   final List<Product> products;
 
   SetProducts(this.products);
 
   @override
-  Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
+  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
     if (products.isNotEmpty) {
       yield currentState.copyWith(
         products: products,
@@ -61,13 +61,13 @@ class SetProducts extends MainEvent {
   }
 }
 
-class SetCurrentProduct extends MainEvent {
+class SetCurrentProduct extends ProductEvent {
   final Product product;
 
   SetCurrentProduct(this.product);
 
   @override
-  Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
+  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
     if (product != null) {
       yield currentState.copyWith(
           selectedProduct: product, selectedVariant: product?.variants?.first);
@@ -75,22 +75,22 @@ class SetCurrentProduct extends MainEvent {
   }
 }
 
-class SetCurrentProductVariant extends MainEvent {
+class SetCurrentProductVariant extends ProductEvent {
   final Variant variant;
 
   SetCurrentProductVariant(this.variant);
 
   @override
-  Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
+  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
     if (variant != null) {
       yield currentState.copyWith(selectedVariant: variant);
     }
   }
 }
 
-class ReadPhysicalClient extends MainEvent {
+class ReadPhysicalClient extends ProductEvent {
   @override
-  Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
+  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
     bloc.getClientIdUsecase(NoParams()).then((clientId) {
       clientId.fold((l) {
         Future.delayed(const Duration(seconds: 1), () {
@@ -107,13 +107,13 @@ class ReadPhysicalClient extends MainEvent {
   }
 }
 
-class SetPhysicalClient extends MainEvent {
+class SetPhysicalClient extends ProductEvent {
   final String clientId;
 
   SetPhysicalClient(this.clientId);
 
   @override
-  Stream<MainState> applyAsync({MainState currentState, MainBloc bloc}) async* {
+  Stream<ProductState> applyAsync({ProductState currentState, ProductBloc bloc}) async* {
     final message = (clientId +
             " - " +
             currentState?.selectedProduct?.name +
