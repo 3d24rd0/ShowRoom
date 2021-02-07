@@ -1,11 +1,21 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/features/main/presentation/pages/main_page.dart';
 import 'package:showroom/simple_bloc_observer.dart';
 
+import 'features/main/presentation/widgets/circular_indicator.dart';
 import 'service_locator.dart';
 
 main() async {
+  runApp(Container(
+    color: Colors.blue,
+    child: Center(
+      child: CircularIndicator(),
+    ),
+  ));
+
   await setUpLocator();
   Bloc.observer = SimpleBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
