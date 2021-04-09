@@ -1,0 +1,38 @@
+{
+    "leftCollection": [
+        {
+            "name": "ZINC",
+            "variantName": "ybory"
+        },
+        {
+            "name": "OZONE",
+            "variantName": "ybory"
+        },
+        {
+            "name": "HUTTON",
+            "variantName": "green"
+        },
+        {
+            "name": "HUTTON",
+            "variantName": "blue"
+        }
+    ],
+    "rightCollection": [
+        {
+            "name": "HUTTON",
+            "variantName": "ybory"
+        },
+        {
+            "name": "HUTTON",
+            "variantName": "white"
+        },
+        {
+            "name": "HUTTON",
+            "variantName": "black"
+        },
+        {
+            "name": "MOOD",
+            "variantName": "ybory"
+        }
+    ]
+}

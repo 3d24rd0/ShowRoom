@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:showroom/features/main/presentation/pages/main_page.dart';
 import 'package:showroom/simple_bloc_observer.dart';
-
+import 'core/route/bloc/router_bloc.dart';
+import 'core/route/custom_router.dart';
+import 'features/products/presentation/widgets/circular_indicator.dart';
 import 'service_locator.dart';
 
 main() async {
+  runApp(Container(
+    color: Color(0xFF3F3C3C),
+    child: Center(
+      child: CircularIndicator(),
+    ),
+  ));
+
   await setUpLocator();
   Bloc.observer = SimpleBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,26 +32,11 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'ShowRoom',
       // theme: myTheme,
-      // navigatorKey: getIt<RouterBloc>().navigatorKey,
-      // initialRoute: CustomRouter.login,
-      // onGenerateRoute: (settings) => CustomRouter.generateRoute(settings),
-      home: MainPage(),
+      navigatorKey: getIt<RouterBloc>().navigatorKey,
+      initialRoute: CustomRouter.hall,
+      onGenerateRoute: (settings) => CustomRouter.generateRoute(settings),
+      // home: ProductPage(),
     );
   }
 
-  @override
-  void initState() {
-    super.initState();
-    // Remove `loading` div
-    // final loader = document.getElementsByClassName('loading');
-    // if (loader.isNotEmpty) {
-    //   loader.first.remove();
-    // }
-  }
-
-  @override
-  void dispose() {
-    // Hive.close();
-    super.dispose();
-  }
 }
