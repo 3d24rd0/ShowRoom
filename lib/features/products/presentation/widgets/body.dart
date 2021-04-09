@@ -7,9 +7,6 @@ import 'product_list.dart';
 import 'product_view.dart';
 
 class Body extends StatelessWidget {
-  const Body({
-    Key key,
-  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +47,6 @@ class Body extends StatelessWidget {
 }
 
 class _Header extends StatelessWidget {
-  const _Header({
-    Key key,
-  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -89,10 +83,10 @@ class _Header extends StatelessWidget {
                 children: [
                   BlocBuilder<ProductBloc, ProductState>(
                       buildWhen: (previous, current) =>
-                          previous?.selectedProduct != current?.selectedProduct,
+                          previous.selectedProduct != current.selectedProduct,
                       builder: (context, state) {
                         return Text(
-                          (state?.selectedProduct?.name ?? "").toUpperCase(),
+                          (state.selectedProduct?.name ?? "").toUpperCase(),
                           overflow: TextOverflow.fade,
                           maxLines: 1,
                           style: TextStyle(

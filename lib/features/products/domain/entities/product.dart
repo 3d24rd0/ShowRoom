@@ -9,7 +9,7 @@ class Product {
     @required this.variants,
   });
 
-  final String name;
-  final String description;
-  final List<Variant> variants;
+  final String? name;
+  final String? description;
+  final List<Variant>? variants;
 }

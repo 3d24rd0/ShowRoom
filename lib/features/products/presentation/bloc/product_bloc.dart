@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:process_loop/process_loop.dart';
 import 'package:showroom/core/domain/entities/usecase.dart';
 import 'package:showroom/features/products/domain/entities/product.dart';
 import 'package:showroom/features/products/domain/entities/variant.dart';
@@ -15,10 +14,10 @@ part 'product_state.dart';
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   final GetProductsUsecase getProductsUsecase;
 
-  StreamSubscription _nfcSubscription;
+  StreamSubscription? _nfcSubscription;
 
   ProductBloc(
-    this.getProductsUsecase,
+   {required this.getProductsUsecase,}
   ) : super(UninitializedState());
 
   @override

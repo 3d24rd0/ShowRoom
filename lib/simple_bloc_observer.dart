@@ -3,7 +3,7 @@ import 'dart:developer' as developer;
 
 class SimpleBlocObserver extends BlocObserver {
   @override
-  void onEvent(Bloc bloc, Object event) {
+  void onEvent(bloc, event) {
     developer.log('$event', name: 'SimpleBlocObserver');
     super.onEvent(bloc, event);
   }
@@ -15,9 +15,9 @@ class SimpleBlocObserver extends BlocObserver {
   }
 
   @override
-  void onError(Cubit cubit, Object error, StackTrace stackTrace) {
+  void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
     developer.log('$error',
         name: 'SimpleBlocObserver', error: error, stackTrace: stackTrace);
-    super.onError(cubit, error, stackTrace);
+    super.onError(bloc, error, stackTrace);
   }
 }

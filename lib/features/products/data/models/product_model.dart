@@ -8,9 +8,9 @@ import 'variant_model.dart';
 
 class ProductModel extends Product {
   ProductModel({
-    @required String name,
-    @required String description,
-    @required List<Variant> variants,
+    @required String? name,
+    @required String? description,
+    @required List<Variant>? variants,
   }) : super(description: description, name: name, variants: variants);
 
   factory ProductModel.fromJson(String str) {

@@ -10,17 +10,17 @@ class ProductList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProductBloc, ProductState>(
         buildWhen: (previous, current) =>
-            previous.products != current?.products ||
-            previous.selectedProduct != current?.selectedProduct,
+            previous.products != current.products ||
+            previous.selectedProduct != current.selectedProduct,
         builder: (context, state) {
-          final length = state?.products?.length ?? 0;
+          final length = state.products?.length ?? 0;
           return Visibility(
             visible: length > 0,
             child: ListView.builder(
               shrinkWrap: true,
               physics: BouncingScrollPhysics(),
               itemBuilder: (BuildContext context, int index) {
-                var product = state?.products[index];
+                var product = state.products![index];
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
@@ -31,7 +31,7 @@ class ProductList extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            product.name.toUpperCase(),
+                            (product.name?.toUpperCase() ?? ""),
                             textAlign: TextAlign.right,
                             style: TextStyle(
                               color: product == state.selectedProduct

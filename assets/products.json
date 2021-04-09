@@ -5,6 +5,7 @@
         "variants": [
             {
                 "img": "1.png",
+                "example": "img/zincblack2.jpg",
                 "name": "ybory",
                 "measures": [
                     {
@@ -49,6 +50,7 @@
             },
             {
                 "img": "2.png",
+                "example": "img/zincblack.jpg",
                 "name": "green",
                 "measures": [
                     {
@@ -93,6 +95,7 @@
             },
             {
                 "img": "3.png",
+                "example": "img/zincgreen.jpg",
                 "name": "blue",
                 "measures": [
                     {
@@ -137,6 +140,7 @@
             },
             {
                 "img": "4.png",
+                "example": "img/zincgreen2.jpg",
                 "name": "white",
                 "measures": [
                     {
@@ -181,6 +185,7 @@
             },
             {
                 "img": "5.png",
+                "example": "img/castiron4.jpg",
                 "name": "black",
                 "measures": [
                     {
@@ -231,6 +236,7 @@
         "variants": [
             {
                 "img": "2.png",
+                "example": "img/castiron3.jpg",
                 "name": "ybory",
                 "measures": [
                     {
@@ -281,6 +287,7 @@
         "variants": [
             {
                 "img": "3.png",
+                "example": "img/castiron1.jpg",
                 "name": "ybory",
                 "measures": [
                     {
@@ -331,6 +338,7 @@
         "variants": [
             {
                 "img": "4.png",
+                "example": "img/castiron.jpg",
                 "name": "ybory",
                 "measures": [
                     {

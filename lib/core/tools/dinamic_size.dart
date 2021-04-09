@@ -31,3 +31,14 @@ class DinamicSize {
     return height > width || width < 992;
   }
 }
+
+extension SizeExtension on int {
+  ///[DinamicSize.widthSize]
+  double w(BuildContext context) => DinamicSize.widthSize(context, this);
+
+  ///[DinamicSize.heightSize]
+  double h(BuildContext context) => DinamicSize.heightSize(context, this);
+
+  ///[DinamicSize.fontSize]
+  double f(BuildContext context) => DinamicSize.fontSize(context, this);
+}

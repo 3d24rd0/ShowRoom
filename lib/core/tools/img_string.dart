@@ -8,15 +8,15 @@ class ImgString extends StatefulWidget {
   final String img;
   final String defaultImgPath;
 
-  const ImgString({Key key, @required this.img, @required this.defaultImgPath})
+  const ImgString({Key? key, required this.img, required this.defaultImgPath})
       : super(key: key);
   @override
   _ImgStringState createState() => _ImgStringState();
 }
 
 class _ImgStringState extends State<ImgString> {
-  Image img;
-  String imgpath;
+  Image? img;
+  String? imgpath;
   @override
   void initState() {
     imgpath = widget.img;
@@ -35,14 +35,16 @@ class _ImgStringState extends State<ImgString> {
 
   @override
   Widget build(BuildContext context) {
-    return img;
+    return img ?? Container();
   }
 
   initializeImg() {
     try {
-      final Uint8List bytes = !(imgpath == null || imgpath.isEmpty)
-          ? Base64Decoder().convert(imgpath)
-          : null;
+      Uint8List? bytes;
+      if (imgpath != null && imgpath!.isNotEmpty) {
+        bytes = Base64Decoder().convert(imgpath!);
+      }
+
       if (bytes != null) {
         img = Image.memory(
           bytes,

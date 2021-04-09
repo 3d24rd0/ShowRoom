@@ -5,11 +5,11 @@ import 'package:showroom/features/products/domain/entities/measure.dart';
 
 class MeasureModel extends Measure {
   MeasureModel({
-    @required String ref,
-    @required double height,
-    @required double width,
-    @required String description,
-    @required String img,
+    @required String? ref,
+    required double height,
+    required double width,
+    @required String? description,
+    @required String? img,
   }) : super(
             ref: ref,
             height: height,
@@ -32,8 +32,8 @@ class MeasureModel extends Measure {
 
   Map<String, dynamic> toMap() => {
         "ref": ref == null ? null : ref,
-        "height": height == null ? null : height,
-        "width": width == null ? null : width,
+        "height": height,
+        "width": width,
         "description": description == null ? null : description,
         "img": img == null ? null : img,
       };

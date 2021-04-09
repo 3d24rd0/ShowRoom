@@ -2,11 +2,11 @@ part of 'product_bloc.dart';
 
 @immutable
 abstract class ProductState {
-  final List<Product> products;
-  final Product selectedProduct;
-  final Variant selectedVariant;
-  final String clientId;
-  final String message;
+  final List<Product>? products;
+  final Product? selectedProduct;
+  final Variant? selectedVariant;
+  final String? clientId;
+  final String? message;
 
   ProductState({
     @required this.products,
@@ -17,11 +17,11 @@ abstract class ProductState {
   });
 
   copyWith({
-    List<Product> products,
-    Product selectedProduct,
-    Variant selectedVariant,
-    String clientId,
-    String message,
+    List<Product>? products,
+    Product? selectedProduct,
+    Variant? selectedVariant,
+    String? clientId,
+    String? message,
   });
 }
 
@@ -36,11 +36,11 @@ class UninitializedState extends ProductState {
         );
 
   UninitializedState.withData({
-    @required List<Product> products,
-    @required Product selectedProduct,
-    @required Variant selectedVariant,
-    @required String clientId,
-    @required String message,
+    @required List<Product>? products,
+    @required Product? selectedProduct,
+    @required Variant? selectedVariant,
+    @required String? clientId,
+    @required String? message,
   }) : super(
           products: products,
           selectedProduct: selectedProduct,
@@ -51,11 +51,11 @@ class UninitializedState extends ProductState {
 
   @override
   copyWith({
-    List<Product> products,
-    Product selectedProduct,
-    Variant selectedVariant,
-    String clientId,
-    String message,
+    List<Product>? products,
+    Product? selectedProduct,
+    Variant? selectedVariant,
+    String? clientId,
+    String? message,
   }) =>
       UninitializedState.withData(
         products: products ?? this.products,
@@ -68,11 +68,11 @@ class UninitializedState extends ProductState {
 
 class InitializedState extends ProductState {
   InitializedState({
-    @required List<Product> products,
-    @required Product selectedProduct,
-    @required Variant selectedVariant,
-    @required String clientId,
-    @required String message,
+    @required List<Product>? products,
+    @required Product? selectedProduct,
+    @required Variant? selectedVariant,
+    @required String? clientId,
+    @required String? message,
   }) : super(
           products: products,
           selectedProduct: selectedProduct,
@@ -83,11 +83,11 @@ class InitializedState extends ProductState {
 
   @override
   copyWith({
-    List<Product> products,
-    Product selectedProduct,
-    Variant selectedVariant,
-    String clientId,
-    String message,
+    List<Product>? products,
+    Product? selectedProduct,
+    Variant? selectedVariant,
+    String? clientId,
+    String? message,
   }) =>
       InitializedState(
         products: products ?? this.products,

@@ -26,9 +26,9 @@ class ProductPage extends StatelessWidget {
                 child: BlocListener<ProductBloc, ProductState>(
                   listenWhen: (previous, current) =>
                       previous.message != current.message &&
-                      (current?.message?.isNotEmpty ?? false),
+                      (current.message?.isNotEmpty ?? false),
                   listener: (context, state) {
-                    var message = state?.message ?? "";
+                    var message = state.message ?? "";
 
                     Scaffold.of(context).showSnackBar(SnackBar(
                         //ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -54,14 +54,14 @@ class ProductPage extends StatelessWidget {
                   },
                   child: BlocBuilder<ProductBloc, ProductState>(
                     buildWhen: (previous, current) =>
-                        previous?.runtimeType != current?.runtimeType,
+                        previous.runtimeType != current.runtimeType,
                     builder: (context, state) {
                       return Stack(
                         alignment: Alignment.center,
                         children: [
                           Body(),
                           Visibility(
-                            visible: state?.runtimeType != InitializedState,
+                            visible: state.runtimeType != InitializedState,
                             child: Positioned.fill(
                               child: Container(
                                 color: Colors.blue,
