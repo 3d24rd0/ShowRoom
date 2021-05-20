@@ -30,9 +30,9 @@ class ProductPage extends StatelessWidget {
                   listener: (context, state) {
                     var message = state.message ?? "";
 
-                    Scaffold.of(context).showSnackBar(SnackBar(
-                        //ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        //onVisible: () => Future.delayed(Duration(seconds: 3)),
+                    // Scaffold.of(context).showSnackBar(SnackBar(
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        onVisible: () => Future.delayed(Duration(seconds: 3)),
                         backgroundColor: Color(0xff18469f),
                         content: SizedBox(
                           height: DinamicSize.heightSize(context, 50),
