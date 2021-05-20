@@ -3,12 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/features/panel/presentation/bloc/panel_bloc.dart';
 
+import 'collection_title.dart';
+
 class Collections extends StatelessWidget {
   final bool left;
-  // final List<Collection> collection;
-
-  // final Product? selectedProduct;
-  // final Variant? selectedVariant;
 
   const Collections({
     Key? key,
@@ -19,11 +17,13 @@ class Collections extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 80.w(context), bottom: 60.w(context)),
-      width: 326.w(context),
+      // width: 326.w(context),
       color: Color(0xff3C3E3F),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _Title(left: left),
+          CollectionTitle(left: left),
           BlocBuilder<PanelBloc, PanelState>(
               buildWhen: (previous, current) =>
                   previous.selectedVariant != current.selectedVariant,
@@ -125,39 +125,3 @@ class Collections extends StatelessWidget {
   }
 }
 
-class _Title extends StatelessWidget {
-  const _Title({
-    Key? key,
-    required this.left,
-  }) : super(key: key);
-
-  final bool left;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 260.w(context),
-      decoration: BoxDecoration(
-        border: Border(
-            top: BorderSide(
-          color: Color(0xffA0A1A2),
-          width: 8.h(context),
-        )),
-      ),
-      alignment: Alignment
-          .center, //left ? Alignment.centerLeft : Alignment.centerRight,
-      child: Text(
-        "Collections".toUpperCase(),
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(
-          color: Color(0xffA0A1A2),
-          fontSize: DinamicSize.fontSize(context, 32),
-          fontWeight: FontWeight.w300,
-          letterSpacing: 0.2,
-          fontFamily: 'Montserrat',
-        ),
-      ),
-    );
-  }
-}
