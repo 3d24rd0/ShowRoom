@@ -28,9 +28,15 @@ class NavigateToPanelEvent extends HallEvent {
 }
 
 class NavigateToProductsEvent extends HallEvent {
-
   @override
   Stream<HallState> applyAsync({currentState, bloc}) async* {
     getIt<RouterBloc>().add(ProductsEvent());
+  }
+}
+
+class NavigateToMultiTouchEvent extends HallEvent {
+  @override
+  Stream<HallState> applyAsync({currentState, bloc}) async* {
+    getIt<RouterBloc>().add(MultiTouchEvent());
   }
 }

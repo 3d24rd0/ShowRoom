@@ -11,6 +11,7 @@ class HallPage extends StatelessWidget {
     Machine(id: '1', type: MachineType.panels, name: "Pasillo 1"),
     Machine(id: '2', type: MachineType.panels, name: "Pasillo 2"),
     Machine(id: '3', type: MachineType.totem, name: "Entrada"),
+    Machine(id: '4', type: MachineType.multiTouch, name: "TV"),
   ];
 
   void onTab(int index, BuildContext context) {
@@ -26,7 +27,10 @@ class HallPage extends StatelessWidget {
       case MachineType.products:
         BlocProvider.of<HallBloc>(context).add(NavigateToProductsEvent());
         break;
-      default:
+      case MachineType.multiTouch:
+        BlocProvider.of<HallBloc>(context).add(NavigateToMultiTouchEvent());
+
+        break;
     }
   }
 
@@ -135,8 +139,9 @@ class HallPage extends StatelessWidget {
           width: 130.0,
         );
       default:
-        return Container(
-          color: Colors.white,
+        return Image.asset(
+          "assets/panels.png",
+          fit: BoxFit.scaleDown,
           height: 170.0,
           width: 130.0,
         );

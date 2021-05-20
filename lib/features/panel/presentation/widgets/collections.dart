@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/features/panel/presentation/bloc/panel_bloc.dart';
 
-import 'collection_title.dart';
+import '../../../../core/widgets/collection_title.dart';
 
 class Collections extends StatelessWidget {
   final bool left;
@@ -23,7 +23,7 @@ class Collections extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          CollectionTitle(left: left),
+          CollectionTitle(),
           BlocBuilder<PanelBloc, PanelState>(
               buildWhen: (previous, current) =>
                   previous.selectedVariant != current.selectedVariant,

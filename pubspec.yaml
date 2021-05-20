@@ -19,6 +19,7 @@ dependencies:
   panorama: ^0.4.1
   process_loop: ^0.0.2
   rxdart: ^0.27.0
+  draw_your_image: ^0.2.0
 
 dev_dependencies:
   flutter_test:

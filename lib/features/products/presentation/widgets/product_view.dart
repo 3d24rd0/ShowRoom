@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/features/products/domain/entities/variant.dart';
 import 'package:showroom/features/products/presentation/bloc/product_bloc.dart';
+import 'package:showroom/core/widgets/variant_view.dart';
 
 import 'circular_indicator.dart';
 import 'variant_sizes.dart';
@@ -57,9 +58,14 @@ class ProductView extends StatelessWidget {
                           esp: "colores",
                           eng: "colors",
                         ),
-                        _Variants(
+                        VariantView(
                           variants: state?.selectedProduct?.variants,
                           currentVariant: state?.selectedVariant,
+                          onTap: (variant) =>
+                              variant.name != state?.selectedVariant?.name
+                                  ? BlocProvider.of<ProductBloc>(context)
+                                      .add(SetCurrentProductVariant(variant))
+                                  : null,
                         )
                       ],
                     ),
@@ -76,8 +82,7 @@ class _TitleDivider extends StatelessWidget {
   final String esp;
   final String? eng;
 
-  const _TitleDivider({required this.esp, this.eng})
-     ;
+  const _TitleDivider({required this.esp, this.eng});
 
   @override
   Widget build(BuildContext context) {
@@ -125,73 +130,6 @@ class _TitleDivider extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class _Variants extends StatelessWidget {
-  final List<Variant>? variants;
-  final Variant? currentVariant;
-
-  const _Variants({required this.variants, required this.currentVariant});
-  @override
-  Widget build(BuildContext context) {
-    return Visibility(
-      visible: (variants?.length ?? 0) > 0,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: variants?.map((variant) {
-              return Padding(
-                padding:
-                    EdgeInsets.only(right: DinamicSize.widthSize(context, 40)),
-                child: InkWell(
-                  onTap: () => variant.name != currentVariant?.name
-                      ? BlocProvider.of<ProductBloc>(context)
-                          .add(SetCurrentProductVariant(variant))
-                      : null,
-                  child: Column(
-                    children: [
-                      Visibility(
-                        visible: variant.name == currentVariant?.name,
-                        child: Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Color(0xFFB42E2D),
-                                width: 5,
-                              ),
-                            ),
-                            height: DinamicSize.heightSize(context, 60),
-                            width: DinamicSize.widthSize(context, 60),
-                            child: Image.asset(
-                              "assets/" + (variant.img ?? "notfound.jpeg"),
-                              fit: BoxFit.cover,
-                            )),
-                        replacement: SizedBox(
-                            height: DinamicSize.heightSize(context, 60),
-                            width: DinamicSize.widthSize(context, 60),
-                            child: Image.asset(
-                              "assets/" + (variant.img ?? "notfound.jpeg"),
-                              fit: BoxFit.cover,
-                            )),
-                      ),
-                      Text(
-                        (variant.name?.toUpperCase() ?? ""),
-                        style: TextStyle(
-                          color: Color(0xFF000000),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w300,
-                          fontStyle: FontStyle.normal,
-                          letterSpacing: 0.24,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              );
-            }).toList() ??
-            [],
-      ),
-      replacement: CircularIndicator(),
     );
   }
 }

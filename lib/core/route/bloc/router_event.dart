@@ -44,3 +44,13 @@ class PanelEvent extends RouterEvent {
     navigatorKey?.pushNamed(CustomRouter.panel, arguments: id);
   }
 }
+
+class MultiTouchEvent extends RouterEvent {
+  @override
+  Stream<RouterState> applyAsync(
+      {RouterState? currentState,
+      RouterBloc? bloc,
+      NavigatorState? navigatorKey}) async* {
+    navigatorKey?.pushNamed(CustomRouter.multitouch);
+  }
+}

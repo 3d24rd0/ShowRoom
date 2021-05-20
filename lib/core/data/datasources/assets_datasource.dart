@@ -6,9 +6,10 @@ import 'package:showroom/core/domain/entities/failures.dart';
 import 'package:showroom/features/panel/data/models/collection_panel_model.dart';
 import 'package:showroom/features/panel/domain/entities/collection_panel.dart';
 import 'package:showroom/features/products/data/models/product_model.dart';
+import 'package:showroom/features/products/domain/entities/product.dart';
 
 abstract class AssetsDatasource {
-  Future<Either<Failure, List<ProductModel>>> jsonProducst();
+  Future<Either<Failure, List<Product>>> jsonProducst();
   Future<Either<Failure, CollectionPanel>> jsonPanel(String id);
 }
 
@@ -22,7 +23,7 @@ class AssetsDatasourceImpl implements AssetsDatasource {
   });
 
   @override
-  Future<Either<Failure, List<ProductModel>>> jsonProducst() async {
+  Future<Either<Failure, List<Product>>> jsonProducst() async {
     final string = await rootBundle.loadString(productsPatch);
 
     final body = json.decode(string).map((x) {

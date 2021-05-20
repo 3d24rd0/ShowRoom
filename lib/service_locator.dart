@@ -12,6 +12,8 @@ import 'package:showroom/features/products/domain/usecases/get_colletion_usecase
 import 'package:showroom/features/products/domain/usecases/get_products_usecase.dart';
 import 'package:showroom/features/products/presentation/bloc/product_bloc.dart';
 
+import 'features/multiTouch/presentation/bloc/multitouch_bloc.dart';
+
 GetIt getIt = GetIt.I;
 
 Future<void> setUpLocator() async {
@@ -20,6 +22,7 @@ Future<void> setUpLocator() async {
   _productsFeature();
   _hallFeature();
   _panelsFeature();
+  _multiTouchFeature();
 }
 
 void _core() {
@@ -75,4 +78,11 @@ void _panelsFeature() {
       assetsDatasource: getIt(),
     ),
   );
+}
+void _multiTouchFeature() {
+  //Bloc
+  getIt.registerFactory(
+    () => MultitouchBloc(getIt()),
+  );
+
 }
