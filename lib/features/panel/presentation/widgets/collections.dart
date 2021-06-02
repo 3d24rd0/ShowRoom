@@ -40,6 +40,7 @@ class Collections extends StatelessWidget {
                     padding: EdgeInsets.only(top: 30.h(context)),
                     child: Scrollbar(
                       child: ListView.builder(
+                          shrinkWrap: true,
                           itemCount: collection.length,
                           itemBuilder: (BuildContext ctx, index) {
                             String name = collection[index].name ?? "";
@@ -72,28 +73,32 @@ class Collections extends StatelessWidget {
                                     ),
                                   ),
                                   Flexible(
-                                    child: Text(
-                                      getProductTitle(name, variantName, left,
-                                          (index + 1).toString()),
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      textAlign: left
-                                          ? TextAlign.left
-                                          : TextAlign.right,
-                                      style: TextStyle(
-                                        color: name.toUpperCase() ==
-                                                    selectedProduct?.name
-                                                        ?.toUpperCase() &&
-                                                variantName.toUpperCase() ==
-                                                    selectedVariant?.name
-                                                        ?.toUpperCase()
-                                            ? Color(0xff6CF149)
-                                            : Color(0xffA0A1A2),
-                                        fontSize:
-                                            DinamicSize.fontSize(context, 20),
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 0.2,
-                                        fontFamily: 'Montserrat',
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        getProductTitle(name, variantName, left,
+                                            (index + 1).toString()),
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: left
+                                            ? TextAlign.left
+                                            : TextAlign.right,
+                                        style: TextStyle(
+                                          color: name.toUpperCase() ==
+                                                      selectedProduct?.name
+                                                          ?.toUpperCase() &&
+                                                  variantName.toUpperCase() ==
+                                                      selectedVariant?.name
+                                                          ?.toUpperCase()
+                                              ? Color(0xff6CF149)
+                                              : Color(0xffA0A1A2),
+                                          fontSize:
+                                              DinamicSize.fontSize(context, 20),
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 0.2,
+                                          height: 1.3,
+                                          fontFamily: 'Montserrat',
+                                        ),
                                       ),
                                     ),
                                   ),
