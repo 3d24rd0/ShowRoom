@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:panorama/panorama.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:showroom/features/products/presentation/pages/product_page.dart';
 
 class PanoramaPage extends StatefulWidget {
   PanoramaPage({Key? key, required this.title}) : super(key: key);
@@ -12,6 +13,7 @@ class PanoramaPage extends StatefulWidget {
 }
 
 class _PanoramaPage extends State<PanoramaPage> {
+  bool showProductInfo = false;
   double _lon = 0;
   double _lat = 0;
   double _tilt = 0;
@@ -31,30 +33,23 @@ class _PanoramaPage extends State<PanoramaPage> {
     });
   }
 
-  Widget hotspotButton(
-      {String? text, IconData? icon, VoidCallback? onPressed}) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        TextButton(
-          style: ButtonStyle(
-            shape: MaterialStateProperty.all(CircleBorder()),
-            backgroundColor: MaterialStateProperty.all(Colors.black38),
-            foregroundColor: MaterialStateProperty.all(Colors.white),
+  Widget hotspotButton({
+    String? text,
+    IconData? icon,
+  }) {
+    return Expanded(
+      child: InkWell(
+        onTap: () {
+          setState(() {
+            showProductInfo = true;
+          });
+        },
+        child: ClipOval(
+          child: Container(
+            color: Color(0x9C983232),
           ),
-          child: Icon(icon),
-          onPressed: onPressed,
         ),
-        text != null
-            ? Container(
-                padding: EdgeInsets.all(4.0),
-                decoration: BoxDecoration(
-                    color: Colors.black38,
-                    borderRadius: BorderRadius.all(Radius.circular(4))),
-                child: Center(child: Text(text)),
-              )
-            : Container(),
-      ],
+      ),
     );
   }
 
@@ -83,9 +78,9 @@ class _PanoramaPage extends State<PanoramaPage> {
               width: 90,
               height: 75,
               widget: hotspotButton(
-                  text: "Next scene",
-                  icon: Icons.open_in_browser,
-                  onPressed: () => setState(() => _panoId++)),
+                text: "Next scene",
+                icon: Icons.open_in_browser,
+              ),
             ),
             Hotspot(
               latitude: -42.0,
@@ -93,15 +88,27 @@ class _PanoramaPage extends State<PanoramaPage> {
               width: 60.0,
               height: 60.0,
               widget: hotspotButton(
-                  icon: Icons.search,
-                  onPressed: () => setState(() => _panoId = 2)),
+                icon: Icons.search,
+              ),
             ),
             Hotspot(
               latitude: -33.0,
               longitude: 123.0,
               width: 60.0,
               height: 60.0,
-              widget: hotspotButton(icon: Icons.arrow_upward, onPressed: () {}),
+              widget: hotspotButton(
+                icon: Icons.arrow_upward,
+              ),
+            ),
+            Hotspot(
+              latitude: -17,
+              longitude: 0,
+              width: 1060.0,
+              height: 360.0,
+              name: "sdfads",
+              widget: hotspotButton(
+                icon: Icons.arrow_upward,
+              ),
             ),
           ],
         );
@@ -122,9 +129,9 @@ class _PanoramaPage extends State<PanoramaPage> {
               width: 90.0,
               height: 75.0,
               widget: hotspotButton(
-                  text: "Next scene",
-                  icon: Icons.double_arrow,
-                  onPressed: () => setState(() => _panoId++)),
+                text: "Next scene",
+                icon: Icons.double_arrow,
+              ),
             ),
           ],
         );
@@ -142,28 +149,69 @@ class _PanoramaPage extends State<PanoramaPage> {
               width: 90.0,
               height: 75.0,
               widget: hotspotButton(
-                  text: "Next scene",
-                  icon: Icons.double_arrow,
-                  onPressed: () => setState(() => _panoId++)),
+                text: "Next scene",
+                icon: Icons.double_arrow,
+              ),
             ),
           ],
         );
     }
+
     return WillPopScope(
-        onWillPop: () {
-          return Future.value(false); // if true allow back else block it
-        },
-        child: Scaffold(
-          // appBar: AppBar(
-          //   title: Text(widget.title),
-          // ),
-          body: Stack(
-            children: [
-              panorama,
-              Text(
-                  '${_lon.toStringAsFixed(3)}, ${_lat.toStringAsFixed(3)}, ${_tilt.toStringAsFixed(3)}'),
-            ],
-          ),
-        ));
+      onWillPop: () {
+        return Future.value(false); // if true allow back else block it
+      },
+      child: Scaffold(
+        // appBar: AppBar(
+        //   title: Text(widget.title),
+        // ),
+        body: Stack(
+          children: [
+            panorama,
+            Text(
+              '${_lon.toStringAsFixed(3)}, ${_lat.toStringAsFixed(3)}, ${_tilt.toStringAsFixed(3)}',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            Visibility(
+              visible: showProductInfo,
+              child: Stack(
+                children: [
+                  Positioned.fill(
+                      child: InkWell(
+                    onTap: () {
+                      setState(() {
+                        showProductInfo = false;
+                      });
+                    },
+                    child: Container(
+                      color: Color(0x7D000000),
+                    ),
+                  )),
+                  Center(
+                    child: SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.8,
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Container(color: Colors.white)),
+                  ),
+                ],
+              ),
+            )
+            // Center(
+            //   child: SizedBox(
+            //     height: 1,
+            //     width: 1,
+            //     child: ClipOval(
+            //       child: Container(
+            //         color: Colors.white,
+            //       ),
+            //     ),
+            //   ),
+            // )
+          ],
+        ),
+      ),
+    );
   }
 }

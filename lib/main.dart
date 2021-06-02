@@ -34,16 +34,16 @@ class _MyAppState extends State<MyApp> {
       title: 'ShowRoom',
       // theme: myTheme,
       navigatorKey: getIt<RouterBloc>().navigatorKey,
-      initialRoute: CustomRouter.panel,
-      onGenerateInitialRoutes: (initialRoute) {
-        return [
-          MaterialPageRoute(
-            builder: (_) => PanelPage(
-              panelId: "1",
-            ),
-          )
-        ];
-      },
+      initialRoute: CustomRouter.hall,
+      // onGenerateInitialRoutes: (initialRoute) {
+      //   return [
+      //     MaterialPageRoute(
+      //       builder: (_) => PanelPage(
+      //         panelId: "1",
+      //       ),
+      //     )
+      //   ];
+      // },
       onGenerateRoute: (settings) => CustomRouter.generateRoute(settings),
       // home: ProductPage(),
     );
