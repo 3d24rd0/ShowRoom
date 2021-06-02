@@ -1,3 +1,4 @@
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
@@ -54,12 +55,12 @@ class Variants extends StatelessWidget {
                                 width: 3,
                               ),
                             ),
-                            child: Image.asset(
+                            child: ExtendedImage.asset(
                               "assets/" + (variant.img ?? "notfound.jpeg"),
                               fit: BoxFit.fill,
                             )),
                         replacement: SizedBox(
-                            child: Image.asset(
+                            child: ExtendedImage.asset(
                           "assets/" + (variant.img ?? "notfound.jpeg"),
                           fit: BoxFit.fill,
                         )),

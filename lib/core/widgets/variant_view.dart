@@ -1,3 +1,4 @@
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/features/products/domain/entities/variant.dart';
@@ -40,14 +41,14 @@ class VariantView extends StatelessWidget {
                             ),
                             height: DinamicSize.heightSize(context, 60),
                             width: DinamicSize.widthSize(context, 60),
-                            child: Image.asset(
+                            child: ExtendedImage.asset(
                               "assets/" + (variant.img ?? "notfound.jpeg"),
                               fit: BoxFit.cover,
                             )),
                         replacement: SizedBox(
                             height: DinamicSize.heightSize(context, 60),
                             width: DinamicSize.widthSize(context, 60),
-                            child: Image.asset(
+                            child: ExtendedImage.asset(
                               "assets/" + (variant.img ?? "notfound.jpeg"),
                               fit: BoxFit.cover,
                             )),

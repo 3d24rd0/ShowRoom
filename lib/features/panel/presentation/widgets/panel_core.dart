@@ -1,3 +1,4 @@
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
@@ -13,7 +14,7 @@ class PanelCore extends StatelessWidget {
         builder: (context, state) {
           return Column(
             children: [
-              Image.asset(
+              ExtendedImage.asset(
                 "assets/" + (state.selectedVariant?.example ?? "notfound.jpeg"),
                 fit: BoxFit.cover,
               ),
@@ -71,7 +72,7 @@ class PanelCore extends StatelessWidget {
                           color: Color(0xffA0A1A2),
                         ),
                       ),
-                      Image.asset(
+                      ExtendedImage.asset(
                         "assets/test.png",
                         fit: BoxFit.contain,
                         height: 250.h(context),

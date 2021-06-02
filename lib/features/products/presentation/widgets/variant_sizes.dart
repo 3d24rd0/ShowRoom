@@ -1,3 +1,4 @@
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/features/products/domain/entities/measure.dart';
@@ -97,7 +98,7 @@ class VariantSizes extends StatelessWidget {
       child: SizedBox(
         height: DinamicSize.heightSize(context, (measure?.height.toInt() ?? 0)),
         width: DinamicSize.widthSize(context, (measure?.width.toInt() ?? 0)),
-        child: Image.asset(
+        child: ExtendedImage.asset(
           "assets/" + (measure?.img ?? "notfound.jpeg"),
           fit: BoxFit.cover,
         ),
