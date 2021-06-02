@@ -13,14 +13,14 @@ class LoadEvent extends PanelEvent {
   @override
   Stream<PanelState> applyAsync({currentState, bloc}) async* {
     var eCollectionPanel = await bloc?.getCollectionPanelUsecase(id);
-    CollectionPanel collectionPanel = eCollectionPanel!.getOrElse(
+    CollectionPanel? collectionPanel = eCollectionPanel?.getOrElse(
       () => CollectionPanel(
         leftCollection: List.empty(),
         rightCollection: List.empty(),
       ),
     );
 
-    var first = collectionPanel.leftCollection.first;
+    var first = collectionPanel?.leftCollection.first;
 
     yield InitializedState(
       panelID: id,
@@ -29,7 +29,7 @@ class LoadEvent extends PanelEvent {
       selectedVariant: null,
     );
 
-    bloc?.add(SelectEvent(first));
+    bloc?.add(SelectEvent(first ?? Collection(name: "",variantName: "",)));
   }
 }
 
@@ -56,6 +56,7 @@ class SelectEvent extends PanelEvent {
         (element) =>
             element.name?.toLowerCase() ==
             collection.variantName?.toLowerCase(),
+            orElse: null,
       ),
     );
     yield e;

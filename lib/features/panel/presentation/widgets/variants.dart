@@ -65,16 +65,16 @@ class Variants extends StatelessWidget {
                         )),
                       ),
                     )),
-                Text(
-                  (variant.name?.toUpperCase() ?? ""),
-                  style: TextStyle(
-                    color: Color(0xFF000000),
-                    fontSize: 14.f(context),
-                    fontWeight: FontWeight.w300,
-                    fontStyle: FontStyle.normal,
-                    letterSpacing: 0.24,
-                  ),
-                )
+                // Text(
+                //   (variant.name?.toUpperCase() ?? ""),
+                //   style: TextStyle(
+                //     color: Color(0xFF000000),
+                //     fontSize: 14.f(context),
+                //     fontWeight: FontWeight.w300,
+                //     fontStyle: FontStyle.normal,
+                //     letterSpacing: 0.24,
+                //   ),
+                // )
               ],
             );
           }),

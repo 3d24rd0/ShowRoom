@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/simple_bloc_observer.dart';
 import 'core/route/bloc/router_bloc.dart';
 import 'core/route/custom_router.dart';
+import 'features/panel/presentation/pages/panel_page.dart';
 import 'features/products/presentation/widgets/circular_indicator.dart';
 import 'service_locator.dart';
 
@@ -33,10 +34,18 @@ class _MyAppState extends State<MyApp> {
       title: 'ShowRoom',
       // theme: myTheme,
       navigatorKey: getIt<RouterBloc>().navigatorKey,
-      initialRoute: CustomRouter.hall,
+      initialRoute: CustomRouter.panel,
+      onGenerateInitialRoutes: (initialRoute) {
+        return [
+          MaterialPageRoute(
+            builder: (_) => PanelPage(
+              panelId: "1",
+            ),
+          )
+        ];
+      },
       onGenerateRoute: (settings) => CustomRouter.generateRoute(settings),
       // home: ProductPage(),
     );
   }
-
 }

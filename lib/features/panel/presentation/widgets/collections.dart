@@ -35,87 +35,91 @@ class Collections extends StatelessWidget {
                 final selectedProduct = state.selectedProduct;
                 final selectedVariant = state.selectedVariant;
 
-                return Container(
-                  padding: EdgeInsets.only(top: 30.h(context)),
-                  height: 700.h(context),
-                  child: Scrollbar(
-                    child: ListView.builder(
-                        itemCount: collection.length,
-                        itemBuilder: (BuildContext ctx, index) {
-                          String name = collection[index].name ?? "";
-                          String variantName =
-                              collection[index].variantName ?? "";
-                          return InkWell(
-                            onTap: () => BlocProvider.of<PanelBloc>(context)
-                                .add(SelectEvent(collection[index])),
-                            child: Row(
-                              mainAxisAlignment: left
-                                  ? MainAxisAlignment.start
-                                  : MainAxisAlignment.end,
-                              children: [
-                                Visibility(
-                                  visible: left &&
-                                      name.toUpperCase() ==
-                                          selectedProduct?.name
-                                              ?.toUpperCase() &&
-                                      variantName.toUpperCase() ==
-                                          selectedVariant?.name?.toUpperCase(),
-                                  child: Icon(
-                                    Icons.arrow_left,
-                                    color: Color(0xff6CF149),
-                                    size: 50.w(context),
+                return Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 30.h(context)),
+                    child: Scrollbar(
+                      child: ListView.builder(
+                          itemCount: collection.length,
+                          itemBuilder: (BuildContext ctx, index) {
+                            String name = collection[index].name ?? "";
+                            String variantName =
+                                collection[index].variantName ?? "";
+                            return InkWell(
+                              onTap: () => BlocProvider.of<PanelBloc>(context)
+                                  .add(SelectEvent(collection[index])),
+                              child: Row(
+                                mainAxisAlignment: left
+                                    ? MainAxisAlignment.start
+                                    : MainAxisAlignment.end,
+                                children: [
+                                  Visibility(
+                                    visible: left &&
+                                        name.toUpperCase() ==
+                                            selectedProduct?.name
+                                                ?.toUpperCase() &&
+                                        variantName.toUpperCase() ==
+                                            selectedVariant?.name
+                                                ?.toUpperCase(),
+                                    child: Icon(
+                                      Icons.arrow_left,
+                                      color: Color(0xff6CF149),
+                                      size: 50.w(context),
+                                    ),
+                                    replacement: Container(
+                                      width: 50.w(context),
+                                      height: 50.w(context),
+                                    ),
                                   ),
-                                  replacement: Container(
-                                    width: 50.w(context),
-                                    height: 50.w(context),
+                                  Flexible(
+                                    child: Text(
+                                      getProductTitle(name, variantName, left,
+                                          (index + 1).toString()),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: left
+                                          ? TextAlign.left
+                                          : TextAlign.right,
+                                      style: TextStyle(
+                                        color: name.toUpperCase() ==
+                                                    selectedProduct?.name
+                                                        ?.toUpperCase() &&
+                                                variantName.toUpperCase() ==
+                                                    selectedVariant?.name
+                                                        ?.toUpperCase()
+                                            ? Color(0xff6CF149)
+                                            : Color(0xffA0A1A2),
+                                        fontSize:
+                                            DinamicSize.fontSize(context, 20),
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 0.2,
+                                        fontFamily: 'Montserrat',
+                                      ),
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  name[0].toUpperCase() +
-                                      name.substring(1).toLowerCase() +
-                                      " " +
-                                      variantName[0].toUpperCase() +
-                                      variantName.substring(1).toLowerCase(),
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  textAlign:
-                                      left ? TextAlign.left : TextAlign.right,
-                                  style: TextStyle(
-                                    color: name.toUpperCase() ==
-                                                selectedProduct?.name
-                                                    ?.toUpperCase() &&
-                                            variantName.toUpperCase() ==
-                                                selectedVariant?.name
-                                                    ?.toUpperCase()
-                                        ? Color(0xff6CF149)
-                                        : Color(0xffA0A1A2),
-                                    fontSize: DinamicSize.fontSize(context, 20),
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: 0.2,
-                                    fontFamily: 'Montserrat',
+                                  Visibility(
+                                    visible: !left &&
+                                        name.toUpperCase() ==
+                                            selectedProduct?.name
+                                                ?.toUpperCase() &&
+                                        variantName.toUpperCase() ==
+                                            selectedVariant?.name
+                                                ?.toUpperCase(),
+                                    child: Icon(
+                                      Icons.arrow_right,
+                                      size: 50.w(context),
+                                      color: Color(0xff6CF149),
+                                    ),
+                                    replacement: Container(
+                                      width: 50.w(context),
+                                      height: 50.w(context),
+                                    ),
                                   ),
-                                ),
-                                Visibility(
-                                  visible: !left &&
-                                      name.toUpperCase() ==
-                                          selectedProduct?.name
-                                              ?.toUpperCase() &&
-                                      variantName.toUpperCase() ==
-                                          selectedVariant?.name?.toUpperCase(),
-                                  child: Icon(
-                                    Icons.arrow_right,
-                                    size: 50.w(context),
-                                    color: Color(0xff6CF149),
-                                  ),
-                                  replacement: Container(
-                                    width: 50.w(context),
-                                    height: 50.w(context),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        }),
+                                ],
+                              ),
+                            );
+                          }),
+                    ),
                   ),
                 );
               }),
@@ -123,5 +127,19 @@ class Collections extends StatelessWidget {
       ),
     );
   }
-}
 
+  String getProductTitle(
+      String name, String variantName, bool left, String index) {
+    String title = name[0].toUpperCase() +
+        name.substring(1).toLowerCase() +
+        " " +
+        variantName[0].toUpperCase() +
+        variantName.substring(1).toLowerCase();
+    if (left) {
+      title = index + " " + title;
+    } else {
+      title = title + " " + index;
+    }
+    return title;
+  }
+}
