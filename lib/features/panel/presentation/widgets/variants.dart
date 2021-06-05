@@ -40,6 +40,8 @@ class Variants extends StatelessWidget {
                             Collection(
                               name: product?.name,
                               variantName: variant.name,
+                              maxLines: 1,
+                              productId: product?.id,
                             ),
                           ),
                         ),

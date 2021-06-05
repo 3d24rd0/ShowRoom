@@ -29,7 +29,12 @@ class MultitouchInitial extends MultitouchState {
           collections: [],
           variant: Variant(
               img: "", example: "notfound.jpeg", name: "", measures: []),
-          product: Product(name: "", description: "", variants: []),
+          product: Product(
+            id: "",
+            name: "",
+            description: "",
+            variants: [],
+          ),
         );
 
   MultitouchInitial.withData({

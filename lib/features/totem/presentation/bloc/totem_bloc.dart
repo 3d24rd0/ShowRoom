@@ -9,6 +9,5 @@ class TotemBloc extends Bloc<TotemEvent, TotemState> {
   Stream<TotemState> mapEventToState(
     TotemEvent event,
   ) async* {
-    // TODO: implement mapEventToState
   }
 }

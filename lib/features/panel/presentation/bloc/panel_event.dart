@@ -29,7 +29,17 @@ class LoadEvent extends PanelEvent {
       selectedVariant: null,
     );
 
-    bloc?.add(SelectEvent(first ?? Collection(name: "",variantName: "",)));
+    bloc?.add(
+      SelectEvent(
+        first ??
+            Collection(
+              name: "",
+              variantName: "",
+              maxLines: 1,
+              productId: '',
+            ),
+      ),
+    );
   }
 }
 
@@ -40,10 +50,10 @@ class SelectEvent extends PanelEvent {
 
   @override
   Stream<PanelState> applyAsync({currentState, bloc}) async* {
-    print(collection.variantName);
-    var eProduct = await bloc?.getCollectionUsecase(collection.name ?? "");
+    var eProduct = await bloc?.getCollectionUsecase(collection.productId ?? "");
     var product = eProduct?.getOrElse(
       () => Product(
+        id: "",
         name: "",
         description: "",
         variants: List.empty(),
@@ -56,7 +66,12 @@ class SelectEvent extends PanelEvent {
         (element) =>
             element.name?.toLowerCase() ==
             collection.variantName?.toLowerCase(),
-            orElse: null,
+        orElse: () => Variant(
+          img: null,
+          example: null,
+          name: null,
+          measures: null,
+        ),
       ),
     );
     yield e;

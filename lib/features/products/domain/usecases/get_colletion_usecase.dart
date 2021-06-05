@@ -8,8 +8,8 @@ class GetCollectionUsecase implements UseCase<Product, String> {
       : _repository = repository;
 
   @override
-  call(collectionName) async {
-    return _repository.getCollection(collectionName);
+  call(collection) async {
+    return _repository.getCollection(collection);
   }
 }
 

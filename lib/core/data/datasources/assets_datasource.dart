@@ -29,7 +29,7 @@ class AssetsDatasourceImpl implements AssetsDatasource {
     final body = json.decode(string).map((x) {
       return ProductModel.fromMap(x);
     });
-    List<ProductModel> listProducts = List<ProductModel>.from(body);
+    List<Product> listProducts = List<Product>.from(body);
 
     return Right(listProducts);
   }

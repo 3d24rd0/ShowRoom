@@ -22,11 +22,18 @@ class ProductRepositoryAssetJson extends ProductRepository {
   }
 
   @override
-  Future<Either<Failure, Product>> getCollection(String name) async {
+  Future<Either<Failure, Product>> getCollection(String id) async {
     try {
       final products = await _assetsDatasource.jsonProducst();
-      var product = products.getOrElse(() => List.empty()).firstWhere(
-          (element) => element.name?.toLowerCase() == name.toLowerCase());
+      var product = products.getOrElse(() => List<Product>.empty()).firstWhere(
+            (element) => element.id == id,
+            orElse: () => Product(
+              id: "",
+              name: "",
+              description: "",
+              variants: [],
+            ),
+          );
       return Right(product);
     } catch (e) {
       return Left(ServerFailure());
