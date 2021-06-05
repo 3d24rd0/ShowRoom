@@ -15,7 +15,7 @@ abstract class PanelState {
     @required this.selectedVariant,
   });
 
-  copyWith({
+  PanelState copyWith({
     String panelID,
     CollectionPanel collectionPanel,
     Product? selectedProduct,
@@ -45,7 +45,7 @@ class UninitializedState extends PanelState {
         );
 
   @override
-  copyWith({
+  UninitializedState copyWith({
     String? panelID,
     CollectionPanel? collectionPanel,
     Product? selectedProduct,
@@ -73,7 +73,7 @@ class InitializedState extends PanelState {
         );
 
   @override
-  copyWith({
+  InitializedState copyWith({
     String? panelID,
     CollectionPanel? collectionPanel,
     Product? selectedProduct,

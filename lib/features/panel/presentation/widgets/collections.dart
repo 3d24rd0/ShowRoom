@@ -43,9 +43,9 @@ class Collections extends StatelessWidget {
                           shrinkWrap: true,
                           itemCount: collection.length,
                           itemBuilder: (BuildContext ctx, index) {
-                            String name = collection[index].name ?? "";
-                            String variantName =
-                                collection[index].variantName ?? "";
+                            // String name = collection[index].name ?? "";
+                            // String variantName =
+                            //     collection[index].variantName ?? "";
                             return InkWell(
                               onTap: () => BlocProvider.of<PanelBloc>(context)
                                   .add(SelectEvent(collection[index])),
@@ -56,12 +56,13 @@ class Collections extends StatelessWidget {
                                 children: [
                                   Visibility(
                                     visible: left &&
-                                        name.toUpperCase() ==
-                                            selectedProduct?.name
-                                                ?.toUpperCase() &&
-                                        variantName.toUpperCase() ==
+                                        collection[index].productId ==
+                                            selectedProduct?.id &&
+                                        collection[index]
+                                                .variantName
+                                                ?.toLowerCase() ==
                                             selectedVariant?.name
-                                                ?.toUpperCase(),
+                                                ?.toLowerCase(),
                                     child: Icon(
                                       Icons.arrow_left,
                                       color: Color(0xff6CF149),
@@ -76,18 +77,22 @@ class Collections extends StatelessWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                        getProductTitle(name, variantName, left,
-                                            (index + 1).toString()),
+                                        getProductTitle(
+                                          collection[index].name ?? "",
+                                          left,
+                                          (index + 1).toString(),
+                                        ),
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                         textAlign: left
                                             ? TextAlign.left
                                             : TextAlign.right,
                                         style: TextStyle(
-                                          color: name.toUpperCase() ==
-                                                      selectedProduct?.name
-                                                          ?.toUpperCase() &&
-                                                  variantName.toUpperCase() ==
+                                          color: collection[index].productId ==
+                                                      selectedProduct?.id &&
+                                                  collection[index]
+                                                          .variantName
+                                                          ?.toUpperCase() ==
                                                       selectedVariant?.name
                                                           ?.toUpperCase()
                                               ? Color(0xff6CF149)
@@ -104,10 +109,11 @@ class Collections extends StatelessWidget {
                                   ),
                                   Visibility(
                                     visible: !left &&
-                                        name.toUpperCase() ==
-                                            selectedProduct?.name
-                                                ?.toUpperCase() &&
-                                        variantName.toUpperCase() ==
+                                        collection[index].productId ==
+                                            selectedProduct?.id &&
+                                        collection[index]
+                                                .variantName
+                                                ?.toUpperCase() ==
                                             selectedVariant?.name
                                                 ?.toUpperCase(),
                                     child: Icon(
@@ -133,13 +139,8 @@ class Collections extends StatelessWidget {
     );
   }
 
-  String getProductTitle(
-      String name, String variantName, bool left, String index) {
-    String title = name[0].toUpperCase() +
-        name.substring(1).toLowerCase() +
-        " " +
-        variantName[0].toUpperCase() +
-        variantName.substring(1).toLowerCase();
+  String getProductTitle(String name, bool left, String index) {
+    String title = name[0].toUpperCase() + name.substring(1).toLowerCase();
     if (left) {
       title = index + " " + title;
     } else {

@@ -2,7 +2,7 @@ part of 'panel_bloc.dart';
 
 @immutable
 abstract class PanelEvent {
-  Stream<PanelState> applyAsync({PanelState? currentState, PanelBloc? bloc});
+  Stream<PanelState> applyAsync( PanelState currentState,  PanelBloc bloc);
 }
 
 class LoadEvent extends PanelEvent {
@@ -11,16 +11,16 @@ class LoadEvent extends PanelEvent {
   LoadEvent(this.id);
 
   @override
-  Stream<PanelState> applyAsync({currentState, bloc}) async* {
-    var eCollectionPanel = await bloc?.getCollectionPanelUsecase(id);
-    CollectionPanel? collectionPanel = eCollectionPanel?.getOrElse(
+  Stream<PanelState> applyAsync(currentState, bloc) async* {
+    var eCollectionPanel = await bloc.getCollectionPanelUsecase(id);
+    CollectionPanel? collectionPanel = eCollectionPanel.getOrElse(
       () => CollectionPanel(
         leftCollection: List.empty(),
         rightCollection: List.empty(),
       ),
     );
 
-    var first = collectionPanel?.leftCollection.first;
+    var first = collectionPanel.leftCollection.first;
 
     yield InitializedState(
       panelID: id,
@@ -29,15 +29,9 @@ class LoadEvent extends PanelEvent {
       selectedVariant: null,
     );
 
-    bloc?.add(
+    bloc.add(
       SelectEvent(
-        first ??
-            Collection(
-              name: "",
-              variantName: "",
-              maxLines: 1,
-              productId: '',
-            ),
+        first ,
       ),
     );
   }
@@ -49,9 +43,9 @@ class SelectEvent extends PanelEvent {
   SelectEvent(this.collection);
 
   @override
-  Stream<PanelState> applyAsync({currentState, bloc}) async* {
-    var eProduct = await bloc?.getCollectionUsecase(collection.productId ?? "");
-    var product = eProduct?.getOrElse(
+  Stream<PanelState> applyAsync(currentState, bloc) async* {
+    var eProduct = await bloc.getCollectionUsecase(collection.productId ?? "");
+    var product = eProduct.getOrElse(
       () => Product(
         id: "",
         name: "",
@@ -60,9 +54,9 @@ class SelectEvent extends PanelEvent {
       ),
     );
 
-    PanelState e = currentState?.copyWith(
+    yield currentState.copyWith(
       selectedProduct: product,
-      selectedVariant: product?.variants?.firstWhere(
+      selectedVariant: product.variants?.firstWhere(
         (element) =>
             element.name?.toLowerCase() ==
             collection.variantName?.toLowerCase(),
@@ -74,6 +68,5 @@ class SelectEvent extends PanelEvent {
         ),
       ),
     );
-    yield e;
   }
 }

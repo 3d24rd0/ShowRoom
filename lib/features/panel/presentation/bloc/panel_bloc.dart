@@ -23,7 +23,7 @@ class PanelBloc extends Bloc<PanelEvent, PanelState> {
     PanelEvent event,
   ) async* {
     try {
-      yield* event.applyAsync(currentState: state, bloc: this);
+      yield* event.applyAsync( state, this);
     } catch (_, stackTrace) {
       developer.log('$_',
           name: 'PanelBloc', error: _, stackTrace: stackTrace);
