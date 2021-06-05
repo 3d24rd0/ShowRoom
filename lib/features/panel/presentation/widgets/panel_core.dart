@@ -1,7 +1,7 @@
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
+import 'package:showroom/core/widgets/custom_image.dart';
 import 'package:showroom/features/panel/presentation/bloc/panel_bloc.dart';
 import 'package:showroom/features/panel/presentation/widgets/variants.dart';
 
@@ -13,10 +13,20 @@ class PanelCore extends StatelessWidget {
             previous.selectedVariant != current.selectedVariant,
         builder: (context, state) {
           return Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              ExtendedImage.asset(
-                "assets/" + (state.selectedVariant?.example ?? "notfound.jpeg"),
-                fit: BoxFit.cover,
+              Expanded(
+                child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+              
+                  children: [
+                    CustomImage(
+                      path: "assets/" +
+                          (state.selectedVariant?.example ?? "notfound.jpeg"),
+                      fit: BoxFit.cover,
+                    ),
+                  ],
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -72,8 +82,8 @@ class PanelCore extends StatelessWidget {
                           color: Color(0xffA0A1A2),
                         ),
                       ),
-                      ExtendedImage.asset(
-                        "assets/test.png",
+                      CustomImage(
+                        path: "assets/test.png",
                         fit: BoxFit.contain,
                         height: 250.h(context),
                         width: 800.w(context),

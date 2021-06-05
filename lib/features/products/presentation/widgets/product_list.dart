@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/features/products/presentation/bloc/product_bloc.dart';
 
-import 'circular_indicator.dart';
+import '../../../../core/widgets/circular_indicator.dart';
 
 class ProductList extends StatelessWidget {
   @override

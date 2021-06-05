@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/simple_bloc_observer.dart';
 import 'core/route/bloc/router_bloc.dart';
 import 'core/route/custom_router.dart';
-import 'features/products/presentation/widgets/circular_indicator.dart';
+import 'core/widgets/circular_indicator.dart';
 import 'service_locator.dart';
 
 main() async {

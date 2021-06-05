@@ -2,6 +2,7 @@ import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
+import 'package:showroom/core/widgets/custom_image.dart';
 import 'package:showroom/features/panel/domain/entities/collection.dart';
 import 'package:showroom/features/panel/presentation/bloc/panel_bloc.dart';
 import 'package:showroom/features/products/domain/entities/product.dart';
@@ -57,13 +58,14 @@ class Variants extends StatelessWidget {
                                 width: 3,
                               ),
                             ),
-                            child: ExtendedImage.asset(
-                              "assets/" + (variant.img ?? "notfound.jpeg"),
+                            child: CustomImage(
+                              path:
+                                  "assets/" + (variant.img ?? "notfound.jpeg"),
                               fit: BoxFit.fill,
                             )),
                         replacement: SizedBox(
-                            child: ExtendedImage.asset(
-                          "assets/" + (variant.img ?? "notfound.jpeg"),
+                            child: CustomImage(
+                          path: "assets/" + (variant.img ?? "notfound.jpeg"),
                           fit: BoxFit.fill,
                         )),
                       ),

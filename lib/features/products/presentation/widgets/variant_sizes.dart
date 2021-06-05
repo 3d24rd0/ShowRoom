@@ -1,10 +1,11 @@
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
+import 'package:showroom/core/widgets/custom_image.dart';
 import 'package:showroom/features/products/domain/entities/measure.dart';
 import 'package:showroom/features/products/domain/entities/variant.dart';
 
-import 'circular_indicator.dart';
+import '../../../../core/widgets/circular_indicator.dart';
 
 class VariantSizes extends StatelessWidget {
   final Variant? variant;
@@ -98,8 +99,8 @@ class VariantSizes extends StatelessWidget {
       child: SizedBox(
         height: DinamicSize.heightSize(context, (measure?.height.toInt() ?? 0)),
         width: DinamicSize.widthSize(context, (measure?.width.toInt() ?? 0)),
-        child: ExtendedImage.asset(
-          "assets/" + (measure?.img ?? "notfound.jpeg"),
+        child: CustomImage(
+          path: "assets/" + (measure?.img ?? "notfound.jpeg"),
           fit: BoxFit.cover,
         ),
       ),

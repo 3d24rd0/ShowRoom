@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/features/products/domain/entities/variant.dart';
 
-import '../../features/products/presentation/widgets/circular_indicator.dart';
+import 'circular_indicator.dart';
+import 'custom_image.dart';
 
 class VariantView extends StatelessWidget {
   final List<Variant>? variants;
@@ -41,15 +42,17 @@ class VariantView extends StatelessWidget {
                             ),
                             height: DinamicSize.heightSize(context, 60),
                             width: DinamicSize.widthSize(context, 60),
-                            child: ExtendedImage.asset(
-                              "assets/" + (variant.img ?? "notfound.jpeg"),
+                            child: CustomImage(
+                              path:
+                                  "assets/" + (variant.img ?? "notfound.jpeg"),
                               fit: BoxFit.cover,
                             )),
                         replacement: SizedBox(
                             height: DinamicSize.heightSize(context, 60),
                             width: DinamicSize.widthSize(context, 60),
-                            child: ExtendedImage.asset(
-                              "assets/" + (variant.img ?? "notfound.jpeg"),
+                            child: CustomImage(
+                              path:
+                                  "assets/" + (variant.img ?? "notfound.jpeg"),
                               fit: BoxFit.cover,
                             )),
                       ),

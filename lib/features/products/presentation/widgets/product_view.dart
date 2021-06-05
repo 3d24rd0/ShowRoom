@@ -2,6 +2,7 @@ import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
+import 'package:showroom/core/widgets/custom_image.dart';
 import 'package:showroom/features/products/presentation/bloc/product_bloc.dart';
 import 'package:showroom/core/widgets/variant_view.dart';
 import 'variant_sizes.dart';
@@ -26,8 +27,8 @@ class ProductView extends StatelessWidget {
                   width: DinamicSize.widthSize(context, 550),
                   child: AspectRatio(
                     aspectRatio: 1 / 1,
-                    child: ExtendedImage.asset(
-                      "assets/" +
+                    child: CustomImage(
+                      path: "assets/" +
                           (state?.selectedVariant?.img ?? "notfound.jpeg"),
                       fit: BoxFit.cover,
                     ),

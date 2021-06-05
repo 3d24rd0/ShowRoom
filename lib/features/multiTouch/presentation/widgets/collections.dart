@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/core/widgets/collection_title.dart';
 import 'package:showroom/features/multiTouch/presentation/bloc/multitouch_bloc.dart';
-import 'package:showroom/features/products/presentation/widgets/circular_indicator.dart';
+import 'package:showroom/core/widgets/circular_indicator.dart';
 
 class Collections extends StatelessWidget {
 

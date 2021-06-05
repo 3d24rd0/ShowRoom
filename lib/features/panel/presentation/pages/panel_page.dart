@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/features/panel/presentation/bloc/panel_bloc.dart';
 import 'package:showroom/features/panel/presentation/widgets/collections.dart';
 import 'package:showroom/features/panel/presentation/widgets/panel_core.dart';
-import 'package:showroom/features/products/presentation/widgets/circular_indicator.dart';
+import 'package:showroom/core/widgets/circular_indicator.dart';
 import 'package:showroom/service_locator.dart';
 
 class PanelPage extends StatelessWidget {

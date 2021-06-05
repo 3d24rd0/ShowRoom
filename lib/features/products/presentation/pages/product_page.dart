@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/features/products/presentation/bloc/product_bloc.dart';
 import 'package:showroom/features/products/presentation/widgets/body.dart';
-import 'package:showroom/features/products/presentation/widgets/circular_indicator.dart';
+import 'package:showroom/core/widgets/circular_indicator.dart';
 import 'package:showroom/service_locator.dart';
 
 class ProductPage extends StatelessWidget {
