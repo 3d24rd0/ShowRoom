@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:showroom/features/hall/presentation/pages/hall_page.dart';
-import 'package:showroom/features/multiTouch/presentation/pages/multi_touch_page.dart';
+import 'package:showroom/features/multiTouch/presentation/pages/multi_user_page.dart';
 import 'package:showroom/features/panel/presentation/pages/panel_page.dart';
 import 'package:showroom/features/products/presentation/pages/product_page.dart';
 import 'package:showroom/features/totem/presentation/pages/panorama_page.dart';
@@ -37,7 +37,7 @@ class CustomRouter {
         );
       case CustomRouter.multitouch:
         return MaterialPageRoute(
-          builder: (_) => MultiTouchPage(),
+          builder: (_) => MultiUserPage(),
         );
       default:
         return MaterialPageRoute(builder: (_) => Container());

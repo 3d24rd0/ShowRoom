@@ -20,12 +20,7 @@ class CustomImage extends StatelessWidget {
       loadStateChanged: (ExtendedImageState state) {
         switch (state.extendedImageLoadState) {
           case LoadState.loading:
-            return CircularIndicator();
-
-          ///if you don't want override completed widget
-          ///please return null or state.completedWidget
-          //return null;
-          //return state.completedWidget;
+            return Center(child: CircularIndicator());
           case LoadState.completed:
             return ExtendedRawImage(
               image: state.extendedImageInfo?.image,

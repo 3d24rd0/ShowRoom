@@ -1,4 +1,3 @@
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/features/products/domain/entities/variant.dart';
@@ -23,38 +22,40 @@ class VariantView extends StatelessWidget {
       visible: (variants?.length ?? 0) > 0,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: variants?.map((variant) {
               return Padding(
-                padding:
-                    EdgeInsets.only(right: DinamicSize.widthSize(context, 40)),
+                padding: const EdgeInsets.only(right: 30),
                 child: InkWell(
                   onTap: () => onTap(variant),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Visibility(
                         visible: variant.name == currentVariant?.name,
                         child: Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Color(0xFFB42E2D),
-                                width: 5,
-                              ),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Color(0xFFB42E2D),
+                              width: 5,
                             ),
-                            height: DinamicSize.heightSize(context, 60),
-                            width: DinamicSize.widthSize(context, 60),
-                            child: CustomImage(
-                              path:
-                                  "assets/" + (variant.img ?? "notfound.jpeg"),
-                              fit: BoxFit.cover,
-                            )),
+                          ),
+                          child: CustomImage(
+                            path: "assets/" + (variant.img ?? "notfound.jpeg"),
+                            fit: BoxFit.cover,
+                            height: 50,
+                            width: 50,
+                          ),
+                        ),
                         replacement: SizedBox(
-                            height: DinamicSize.heightSize(context, 60),
-                            width: DinamicSize.widthSize(context, 60),
-                            child: CustomImage(
-                              path:
-                                  "assets/" + (variant.img ?? "notfound.jpeg"),
-                              fit: BoxFit.cover,
-                            )),
+                          child: CustomImage(
+                            path: "assets/" + (variant.img ?? "notfound.jpeg"),
+                            fit: BoxFit.cover,
+                            height: 40,
+                            width: 40,
+                          ),
+                        ),
                       ),
                       Text(
                         (variant.name?.toUpperCase() ?? ""),
@@ -65,6 +66,8 @@ class VariantView extends StatelessWidget {
                           fontStyle: FontStyle.normal,
                           letterSpacing: 0.24,
                         ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       )
                     ],
                   ),
