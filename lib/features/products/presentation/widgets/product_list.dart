@@ -30,17 +30,21 @@ class ProductList extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text(
-                            (product.name?.toUpperCase() ?? ""),
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              color: product == state.selectedProduct
-                                  ? Color(0xFFB42E2D)
-                                  : Color(0xFF000000),
-                              fontSize: 40,
-                              fontWeight: FontWeight.w400,
-                              fontStyle: FontStyle.normal,
-                              letterSpacing: 0.24,
+                          Flexible(
+                            child: Text(
+                              (product.name?.toUpperCase() ?? ""),
+                              textAlign: TextAlign.right,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: product == state.selectedProduct
+                                    ? Color(0xFFB42E2D)
+                                    : Color(0xFF000000),
+                                fontSize: 40,
+                                fontWeight: FontWeight.w400,
+                                fontStyle: FontStyle.normal,
+                                letterSpacing: 0.24,
+                              ),
                             ),
                           ),
                           Visibility(

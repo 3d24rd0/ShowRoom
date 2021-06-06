@@ -25,33 +25,40 @@ class PanelCore extends StatelessWidget {
               SizedBox(
                 height: 3,
               ),
-              Column(
-                children: [
-                  TitleDivider(
-                    esp: "colores",
-                    eng: "colors",
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: VariantView(
-                      variants: state.selectedProduct?.variants,
-                      currentVariant: state.selectedVariant,
-                      onTap: (variant) =>
-                          variant.name != state.selectedVariant?.name
-                              ? BlocProvider.of<PanelBloc>(context).add(
-                                  SelectEvent(
-                                    Collection(
-                                      name: state.selectedProduct?.name,
-                                      variantName: variant.name,
-                                      maxLines: 1,
-                                      productId: state.selectedProduct?.id,
-                                    ),
-                                  ),
-                                )
-                              : null,
+              Expanded(
+                child: Column(
+                  children: [
+                    TitleDivider(
+                      esp: "colores",
+                      eng: "colors",
                     ),
-                  ),
-                ],
+                    Expanded(
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: VariantView(
+                            variants: state.selectedProduct?.variants,
+                            currentVariant: state.selectedVariant,
+                            onTap: (variant) =>
+                                variant.name != state.selectedVariant?.name
+                                    ? BlocProvider.of<PanelBloc>(context).add(
+                                        SelectEvent(
+                                          Collection(
+                                            name: state.selectedProduct?.name,
+                                            variantName: variant.name,
+                                            maxLines: 1,
+                                            productId: state.selectedProduct?.id,
+                                          ),
+                                        ),
+                                      )
+                                    : null,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(
                 height: 3,

@@ -51,25 +51,32 @@ class ProductView extends StatelessWidget {
                         VariantSizes(variant: state?.selectedVariant),
                       ],
                     ),
-                    Column(
-                      children: [
-                        TitleDivider(
-                          esp: "colores",
-                          eng: "colors",
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: VariantView(
-                            variants: state?.selectedProduct?.variants,
-                            currentVariant: state?.selectedVariant,
-                            onTap: (variant) =>
-                                variant.name != state?.selectedVariant?.name
-                                    ? BlocProvider.of<ProductBloc>(context)
-                                        .add(SetCurrentProductVariant(variant))
-                                    : null,
+                    Expanded(
+                      child: Column(
+                        children: [
+                          TitleDivider(
+                            esp: "colores",
+                            eng: "colors",
                           ),
-                        ),
-                      ],
+                          Expanded(
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: VariantView(
+                                  variants: state?.selectedProduct?.variants,
+                                  currentVariant: state?.selectedVariant,
+                                  onTap: (variant) => variant.name !=
+                                          state?.selectedVariant?.name
+                                      ? BlocProvider.of<ProductBloc>(context)
+                                          .add(SetCurrentProductVariant(variant))
+                                      : null,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
