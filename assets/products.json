@@ -1,101 +1,12 @@
 [
     {
+        "id": "1",
         "name": "HUTTON",
         "description": "Revestimiento fabricado en gres de pasta roja con acabado en color blanco mate imitando a baldosa de cemento. Su formato de 8 mm de espesor es ideal para renovar la estética de las paredes en cocinas y baños. Conseguirás en las paredes un efecto liso con bordes rectos que otorgan continuidad y elegancia. Cada paquete contiene 8 baldosas con las que poder dar un nuevo aire a los espacios elegidos. Medidas: 31,6 x 60 cm (ancho x largo)",
         "variants": [
             {
-                "img": "1.png",
-                "example": "img/zincblack2.jpg",
-                "name": "ybory",
-                "measures": [
-                    {
-                        "ref": "g-5955",
-                        "height": 100,
-                        "width": 100,
-                        "description": ""
-                    },
-                    {
-                        "ref": "g-5755",
-                        "height": 50,
-                        "width": 100,
-                        "description": ""
-                    },
-                    {
-                        "ref": "g-5255",
-                        "height": 60,
-                        "width": 60,
-                        "description": ""
-                    },
-                    {
-                        "ref": "g-5355",
-                        "height": 30,
-                        "width": 60,
-                        "description": ""
-                    },
-                    {
-                        "ref": "G-5545",
-                        "height": 60,
-                        "width": 60,
-                        "img": "hex.png",
-                        "description": ""
-                    },
-                    {
-                        "ref": "g-555/7254",
-                        "height": 29.75,
-                        "width": 29.75,
-                        "img": "mesh.png",
-                        "description": "Mesh mounted mosaic"
-                    }
-                ]
-            },
-            {
-                "img": "2.png",
-                "example": "img/zincblack.jpg",
-                "name": "green",
-                "measures": [
-                    {
-                        "ref": "g-5455",
-                        "height": 100,
-                        "width": 100,
-                        "description": ""
-                    },
-                    {
-                        "ref": "g-5885",
-                        "height": 50,
-                        "width": 100,
-                        "description": ""
-                    },
-                    {
-                        "ref": "g-5885",
-                        "height": 60,
-                        "width": 60,
-                        "description": ""
-                    },
-                    {
-                        "ref": "g-5995",
-                        "height": 30,
-                        "width": 60,
-                        "description": ""
-                    },
-                    {
-                        "ref": "G-5005",
-                        "height": 60,
-                        "width": 60,
-                        "img": "hex.png",
-                        "description": ""
-                    },
-                    {
-                        "ref": "g-585/7664",
-                        "height": 29.75,
-                        "width": 29.75,
-                        "img": "mesh.png",
-                        "description": "Mesh mounted mosaic"
-                    }
-                ]
-            },
-            {
-                "img": "3.png",
-                "example": "img/zincgreen.jpg",
+                "img": "icon/HUTTON-blue-icon.png",
+                "example": "img/HUTTON-blue.jpg",
                 "name": "blue",
                 "measures": [
                     {
@@ -126,22 +37,67 @@
                         "ref": "G-5545",
                         "height": 60,
                         "width": 60,
-                        "img": "hex.png",
+                        "img": "icon/hex.png",
                         "description": ""
                     },
                     {
                         "ref": "g-555/7254",
                         "height": 29.75,
                         "width": 29.75,
-                        "img": "mesh.png",
+                        "img": "icon/mesh.png",
                         "description": "Mesh mounted mosaic"
                     }
                 ]
             },
             {
-                "img": "4.png",
-                "example": "img/zincgreen2.jpg",
-                "name": "white",
+                "img": "icon/HUTTON-classic-icon.png",
+                "example": "img/HUTTON-classic.jpg",
+                "name": "classic",
+                "measures": [
+                    {
+                        "ref": "g-5455",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5885",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5885",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5995",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5005",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-585/7664",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/HUTTON-orange-icon.png",
+                "example": "img/HUTTON-orange.jpg",
+                "name": "orange",
                 "measures": [
                     {
                         "ref": "g-5955",
@@ -171,21 +127,118 @@
                         "ref": "G-5545",
                         "height": 60,
                         "width": 60,
-                        "img": "hex.png",
+                        "img": "icon/hex.png",
                         "description": ""
                     },
                     {
                         "ref": "g-555/7254",
                         "height": 29.75,
                         "width": 29.75,
-                        "img": "mesh.png",
+                        "img": "icon/mesh.png",
                         "description": "Mesh mounted mosaic"
                     }
                 ]
             },
             {
-                "img": "5.png",
-                "example": "img/castiron4.jpg",
+                "img": "icon/HUTTON-raku-icon.png",
+                "example": "img/HUTTON-raku.jpg",
+                "name": "raku",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/HUTTON-rosso-icon.png",
+                "example": "img/HUTTON-rosso.jpg",
+                "name": "rosso",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id":"11",
+        "name": "MOOD",
+        "description": "Revestimiento fabricado en gres de pasta roja con acabado en color blanco mate imitando a baldosa de cemento. Su formato de 8 mm de espesor es ideal para renovar la estética de las paredes en cocinas y baños. Conseguirás en las paredes un efecto liso con bordes rectos que otorgan continuidad y elegancia. Cada paquete contiene 8 baldosas con las que poder dar un nuevo aire a los espacios elegidos. Medidas: 31,6 x 60 cm (ancho x largo)",
+        "variants": [
+            {
+                "img": "icon/MOOD-black-icon.png",
+                "example": "img/MOOD-black.jpg",
                 "name": "black",
                 "measures": [
                     {
@@ -216,28 +269,22 @@
                         "ref": "G-5545",
                         "height": 60,
                         "width": 60,
-                        "img": "hex.png",
+                        "img": "icon/hex.png",
                         "description": ""
                     },
                     {
                         "ref": "g-555/7254",
                         "height": 29.75,
                         "width": 29.75,
-                        "img": "mesh.png",
+                        "img": "icon/mesh.png",
                         "description": "Mesh mounted mosaic"
                     }
                 ]
-            }
-        ]
-    },
-    {
-        "name": "MOOD",
-        "description": "Revestimiento fabricado en gres de pasta roja con acabado en color blanco mate imitando a baldosa de cemento. Su formato de 8 mm de espesor es ideal para renovar la estética de las paredes en cocinas y baños. Conseguirás en las paredes un efecto liso con bordes rectos que otorgan continuidad y elegancia. Cada paquete contiene 8 baldosas con las que poder dar un nuevo aire a los espacios elegidos. Medidas: 31,6 x 60 cm (ancho x largo)",
-        "variants": [
+            },
             {
-                "img": "2.png",
-                "example": "img/castiron3.jpg",
-                "name": "ybory",
+                "img": "icon/MOOD-blue-icon.png",
+                "example": "img/MOOD-blue.jpg",
+                "name": "blue",
                 "measures": [
                     {
                         "ref": "g-5955",
@@ -267,14 +314,149 @@
                         "ref": "G-5545",
                         "height": 60,
                         "width": 60,
-                        "img": "hex.png",
+                        "img": "icon/hex.png",
                         "description": ""
                     },
                     {
                         "ref": "g-555/7254",
                         "height": 29.75,
                         "width": 29.75,
-                        "img": "mesh.png",
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/MOOD-green-icon.png",
+                "example": "img/MOOD-green.jpg",
+                "name": "green",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/MOOD-ivory-icon.png",
+                "example": "img/MOOD-ivory.jpg",
+                "name": "ivory",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/MOOD-white-icon.png",
+                "example": "img/MOOD-while.jpg",
+                "name": "white",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
                         "description": "Mesh mounted mosaic"
                     }
                 ]
@@ -282,13 +464,14 @@
         ]
     },
     {
+        "id":"111",
         "name": "OZONE",
         "description": "Revestimiento fabricado en gres de pasta roja con acabado en color blanco mate imitando a baldosa de cemento. Su formato de 8 mm de espesor es ideal para renovar la estética de las paredes en cocinas y baños. Conseguirás en las paredes un efecto liso con bordes rectos que otorgan continuidad y elegancia. Cada paquete contiene 8 baldosas con las que poder dar un nuevo aire a los espacios elegidos. Medidas: 31,6 x 60 cm (ancho x largo)",
         "variants": [
             {
-                "img": "3.png",
-                "example": "img/castiron1.jpg",
-                "name": "ybory",
+                "img": "icon/OZONE-blue-icon.png",
+                "example": "img/OZONE-blue.jpg",
+                "name": "blue",
                 "measures": [
                     {
                         "ref": "g-5955",
@@ -318,14 +501,149 @@
                         "ref": "G-5545",
                         "height": 60,
                         "width": 60,
-                        "img": "hex.png",
+                        "img": "icon/hex.png",
                         "description": ""
                     },
                     {
                         "ref": "g-555/7254",
                         "height": 29.75,
                         "width": 29.75,
-                        "img": "mesh.png",
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/OZONE-brown-icon.png",
+                "example": "img/OZONE-brown.jpg",
+                "name": "brown",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/OZONE-grey-icon.png",
+                "example": "img/OZONE-grey.jpg",
+                "name": "grey",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/OZONE-ivory-icon.png",
+                "example": "img/OZONE-ivory.jpg",
+                "name": "ivory",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
                         "description": "Mesh mounted mosaic"
                     }
                 ]
@@ -333,13 +651,14 @@
         ]
     },
     {
+        "id":"1111",
         "name": "ZINC",
         "description": "Revestimiento fabricado en gres de pasta roja con acabado en color blanco mate imitando a baldosa de cemento. Su formato de 8 mm de espesor es ideal para renovar la estética de las paredes en cocinas y baños. Conseguirás en las paredes un efecto liso con bordes rectos que otorgan continuidad y elegancia. Cada paquete contiene 8 baldosas con las que poder dar un nuevo aire a los espacios elegidos. Medidas: 31,6 x 60 cm (ancho x largo)",
         "variants": [
             {
-                "img": "4.png",
-                "example": "img/castiron.jpg",
-                "name": "ybory",
+                "img": "icon/ZINC-black-icon.png",
+                "example": "img/ZINC-black.jpg",
+                "name": "black",
                 "measures": [
                     {
                         "ref": "g-5955",
@@ -369,14 +688,807 @@
                         "ref": "G-5545",
                         "height": 60,
                         "width": 60,
-                        "img": "hex.png",
+                        "img": "icon/hex.png",
                         "description": ""
                     },
                     {
                         "ref": "g-555/7254",
                         "height": 29.75,
                         "width": 29.75,
-                        "img": "mesh.png",
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/ZINC-copper-icon.png",
+                "example": "img/ZINC-copper.jpg",
+                "name": "copper",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/ZINC-green-icon.png",
+                "example": "img/ZINC-green.jpg",
+                "name": "green",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/ZINC-silver-icon.png",
+                "example": "img/ZINC-silver.jpg",
+                "name": "silver",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id":"11111",
+        "name": "RUST",
+        "description": "Revestimiento fabricado en gres de pasta roja con acabado en color blanco mate imitando a baldosa de cemento. Su formato de 8 mm de espesor es ideal para renovar la estética de las paredes en cocinas y baños. Conseguirás en las paredes un efecto liso con bordes rectos que otorgan continuidad y elegancia. Cada paquete contiene 8 baldosas con las que poder dar un nuevo aire a los espacios elegidos. Medidas: 31,6 x 60 cm (ancho x largo)",
+        "variants": [
+            {
+                "img": "icon/RUST-green-icon.png",
+                "example": "img/RUST-green.jpg",
+                "name": "green",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/RUST-titanium-icon.png",
+                "example": "img/RUST-titanium.jpg",
+                "name": "titanium",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/RUST-white-icon.png",
+                "example": "img/RUST-white.jpg",
+                "name": "white",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id":"12",
+        "name": "TATTOO",
+        "description": "Revestimiento fabricado en gres de pasta roja con acabado en color blanco mate imitando a baldosa de cemento. Su formato de 8 mm de espesor es ideal para renovar la estética de las paredes en cocinas y baños. Conseguirás en las paredes un efecto liso con bordes rectos que otorgan continuidad y elegancia. Cada paquete contiene 8 baldosas con las que poder dar un nuevo aire a los espacios elegidos. Medidas: 31,6 x 60 cm (ancho x largo)",
+        "variants": [
+            {
+                "img": "icon/TATTOO-black-icon.png",
+                "example": "img/TATTOO-black.jpg",
+                "name": "black",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/TATTOO-decor-icon.png",
+                "example": "img/TATTOO-decor.jpg",
+                "name": "decor",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/TATTOO-oxido-icon.png",
+                "example": "img/TATTOO-oxido.jpg",
+                "name": "oxido",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/TATTOO-white-icon.png",
+                "example": "img/TATTOO-white.jpg",
+                "name": "white",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id":"122",
+        "name": "INEDITA",
+        "description": "Revestimiento fabricado en gres de pasta roja con acabado en color blanco mate imitando a baldosa de cemento. Su formato de 8 mm de espesor es ideal para renovar la estética de las paredes en cocinas y baños. Conseguirás en las paredes un efecto liso con bordes rectos que otorgan continuidad y elegancia. Cada paquete contiene 8 baldosas con las que poder dar un nuevo aire a los espacios elegidos. Medidas: 31,6 x 60 cm (ancho x largo)",
+        "variants": [
+            {
+                "img": "icon/INEDITA-beige-icon.png",
+                "example": "img/INEDITA-beige.jpg",
+                "name": "beige",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/INEDITA-blue-icon.png",
+                "example": "img/INEDITA-blue.jpg",
+                "name": "blue",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/INEDITA-white-icon.png",
+                "example": "img/INEDITA-white.jpg",
+                "name": "white",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id":"13",
+        "name": "MATERIA",
+        "description": "Revestimiento fabricado en gres de pasta roja con acabado en color blanco mate imitando a baldosa de cemento. Su formato de 8 mm de espesor es ideal para renovar la estética de las paredes en cocinas y baños. Conseguirás en las paredes un efecto liso con bordes rectos que otorgan continuidad y elegancia. Cada paquete contiene 8 baldosas con las que poder dar un nuevo aire a los espacios elegidos. Medidas: 31,6 x 60 cm (ancho x largo)",
+        "variants": [
+            {
+                "img": "icon/MATERIA-beige-icon.png",
+                "example": "img/MATERIA-beige.jpg",
+                "name": "beige",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/MATERIA-black-icon.png",
+                "example": "img/MATERIA-black.jpg",
+                "name": "black",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/MATERIA-grey-icon.png",
+                "example": "img/MATERIA-grey.jpg",
+                "name": "grey",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
+                        "description": "Mesh mounted mosaic"
+                    }
+                ]
+            },
+            {
+                "img": "icon/MATERIA-white-icon.png",
+                "example": "img/MATERIA-white.jpg",
+                "name": "white",
+                "measures": [
+                    {
+                        "ref": "g-5955",
+                        "height": 100,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5755",
+                        "height": 50,
+                        "width": 100,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5255",
+                        "height": 60,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-5355",
+                        "height": 30,
+                        "width": 60,
+                        "description": ""
+                    },
+                    {
+                        "ref": "G-5545",
+                        "height": 60,
+                        "width": 60,
+                        "img": "icon/hex.png",
+                        "description": ""
+                    },
+                    {
+                        "ref": "g-555/7254",
+                        "height": 29.75,
+                        "width": 29.75,
+                        "img": "icon/mesh.png",
                         "description": "Mesh mounted mosaic"
                     }
                 ]
