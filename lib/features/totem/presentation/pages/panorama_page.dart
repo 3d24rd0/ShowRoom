@@ -17,8 +17,7 @@ class _PanoramaPage extends State<PanoramaPage> {
     String? text,
     IconData? icon,
   }) {
-    return Expanded(
-      child: InkWell(
+    return InkWell(
         onTap: () {
           setState(() {
             showProductInfo = true;
@@ -29,14 +28,14 @@ class _PanoramaPage extends State<PanoramaPage> {
             color: Color(0x9C983232),
           ),
         ),
-      ),
+      
     );
   }
 
   @override
   Widget build(BuildContext context) {
     var panorama = Panorama(
-      animSpeed: 1.0,
+      animSpeed: 0.3,
       sensorControl: SensorControl.None,
       // onViewChanged: (longitude, latitude, tilt) {
       //   print(
