@@ -46,7 +46,7 @@ class Collections extends StatelessWidget {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         color: Color(0xffA0A1A2),
-                                        fontSize: 40,
+                                        fontSize: 30,
                                         fontWeight: FontWeight.w400,
                                         fontStyle: FontStyle.normal,
                                         letterSpacing: 0.24,
