@@ -34,7 +34,7 @@ class Body extends StatelessWidget {
                         child: VariantSelector(),
                       ),
                       Expanded(
-                        flex: 3,
+                        flex: 4,
                         child: Draw(
                             // controller: _controller,
                             backgroundColor: Color(0xFF76899C),
