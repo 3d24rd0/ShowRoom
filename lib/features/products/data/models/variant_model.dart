@@ -9,6 +9,7 @@ class VariantModel extends Variant {
   VariantModel({
     @required String? img,
     @required String? example,
+    @required String? id,
     @required String? name,
     @required List<Measure>? measures,
   }) : super(
@@ -16,6 +17,7 @@ class VariantModel extends Variant {
           example: example,
           name: name,
           measures: measures,
+          id:id,
         );
 
   factory VariantModel.fromJson(String str) =>
@@ -25,6 +27,7 @@ class VariantModel extends Variant {
 
   factory VariantModel.fromMap(Map<String, dynamic> json) => VariantModel(
         img: json["img"] == null ? null : json["img"],
+        id: json["id"] == null ? null : json["id"],
         example: json["example"] == null ? null : json["example"],
         name: json["name"] == null ? null : json["name"],
         measures: json["measures"] == null

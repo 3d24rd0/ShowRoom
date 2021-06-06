@@ -46,7 +46,7 @@ class PanelCore extends StatelessWidget {
                                         SelectEvent(
                                           Collection(
                                             name: state.selectedProduct?.name,
-                                            variantName: variant.name,
+                                            variantId: variant.id,
                                             maxLines: 1,
                                             productId: state.selectedProduct?.id,
                                           ),

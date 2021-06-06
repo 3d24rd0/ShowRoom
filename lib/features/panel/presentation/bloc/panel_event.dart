@@ -59,8 +59,9 @@ class SelectEvent extends PanelEvent {
       selectedVariant: product.variants?.firstWhere(
         (element) =>
             element.name?.toLowerCase() ==
-            collection.variantName?.toLowerCase(),
+            collection.variantId?.toLowerCase(),
         orElse: () => Variant(
+          id: null,
           img: null,
           example: null,
           name: null,

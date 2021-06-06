@@ -64,7 +64,7 @@ class ListOfProductSelected extends StatelessWidget {
                       title: Text(
                         (collection.name ?? "") +
                             " " +
-                            (collection.variantName ?? ""),
+                            (collection.variantId ?? ""),
                         style: TextStyle(
                           color: Color(0xffA0A1A2),
                           fontSize: DinamicSize.fontSize(context, 32),

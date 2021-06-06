@@ -28,7 +28,7 @@ class MultitouchInitial extends MultitouchState {
           products: [],
           collections: [],
           variant: Variant(
-              img: "", example: "notfound.jpeg", name: "", measures: []),
+              img: "", example: "notfound.jpeg", name: "", measures: [], id: ''),
           product: Product(
             id: "",
             name: "",

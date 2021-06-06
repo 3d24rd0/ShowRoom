@@ -49,7 +49,7 @@ class AddCollectionVariantEvent extends MultitouchEvent {
         ..add(
           Collection(
             name: currentState.product.name,
-            variantName: currentState.variant.name,
+            variantId: currentState.variant.name,
             maxLines: 1,
             productId: currentState.product.id,
           ),

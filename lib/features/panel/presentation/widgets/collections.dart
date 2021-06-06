@@ -43,9 +43,6 @@ class Collections extends StatelessWidget {
                           shrinkWrap: true,
                           itemCount: collection.length,
                           itemBuilder: (BuildContext ctx, index) {
-                            // String name = collection[index].name ?? "";
-                            // String variantName =
-                            //     collection[index].variantName ?? "";
                             return InkWell(
                               onTap: () => BlocProvider.of<PanelBloc>(context)
                                   .add(SelectEvent(collection[index])),
@@ -59,9 +56,9 @@ class Collections extends StatelessWidget {
                                         collection[index].productId ==
                                             selectedProduct?.id &&
                                         collection[index]
-                                                .variantName
+                                                .variantId
                                                 ?.toLowerCase() ==
-                                            selectedVariant?.name
+                                            selectedVariant?.id
                                                 ?.toLowerCase(),
                                     child: Icon(
                                       Icons.arrow_left,
@@ -91,9 +88,9 @@ class Collections extends StatelessWidget {
                                           color: collection[index].productId ==
                                                       selectedProduct?.id &&
                                                   collection[index]
-                                                          .variantName
+                                                          .variantId
                                                           ?.toUpperCase() ==
-                                                      selectedVariant?.name
+                                                      selectedVariant?.id
                                                           ?.toUpperCase()
                                               ? Color(0xff6CF149)
                                               : Color(0xffA0A1A2),
@@ -112,9 +109,9 @@ class Collections extends StatelessWidget {
                                         collection[index].productId ==
                                             selectedProduct?.id &&
                                         collection[index]
-                                                .variantName
+                                                .variantId
                                                 ?.toUpperCase() ==
-                                            selectedVariant?.name
+                                            selectedVariant?.id
                                                 ?.toUpperCase(),
                                     child: Icon(
                                       Icons.arrow_right,

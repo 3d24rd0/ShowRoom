@@ -5,12 +5,12 @@ import 'package:showroom/features/panel/domain/entities/collection.dart';
 class CollectionModel extends Collection {
   CollectionModel({
     required String productId,
-    required String variantName,
+    required String variantId,
     required String name,
     required int maxLines,
   }) : super(
           productId: productId,
-          variantName: variantName,
+          variantId: variantId,
           name: name,
           maxLines: maxLines,
         );
@@ -21,7 +21,7 @@ class CollectionModel extends Collection {
   factory CollectionModel.fromMap(Map<String, dynamic> json) => CollectionModel(
         productId: json["productId"] == null ? null : json["productId"],
         name: json["name"] == null ? null : json["name"],
-        variantName: json["variantName"] == null ? null : json["variantName"],
+        variantId: json["variantId"] == null ? null : json["variantId"],
         maxLines: json["maxLines"] == null ? null : json["maxLines"],
       );
 }
