@@ -1,11 +1,10 @@
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/core/widgets/custom_image.dart';
 import 'package:showroom/features/products/domain/entities/measure.dart';
 import 'package:showroom/features/products/domain/entities/variant.dart';
 
-import '../../../../core/widgets/circular_indicator.dart';
+import 'circular_indicator.dart';
 
 class VariantSizes extends StatelessWidget {
   final Variant? variant;

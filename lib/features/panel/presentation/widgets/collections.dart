@@ -82,7 +82,7 @@ class Collections extends StatelessWidget {
                                           left,
                                           (index + 1).toString(),
                                         ),
-                                        maxLines: 2,
+                                        maxLines: collection[index].maxLines,
                                         overflow: TextOverflow.ellipsis,
                                         textAlign: left
                                             ? TextAlign.left

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/features/products/domain/entities/variant.dart';
 
 import 'circular_indicator.dart';

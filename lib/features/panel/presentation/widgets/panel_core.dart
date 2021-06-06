@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/core/widgets/custom_image.dart';
+import 'package:showroom/core/widgets/title_divider.dart';
+import 'package:showroom/core/widgets/variant_sizes.dart';
+import 'package:showroom/core/widgets/variant_view.dart';
+import 'package:showroom/features/panel/domain/entities/collection.dart';
 import 'package:showroom/features/panel/presentation/bloc/panel_bloc.dart';
-import 'package:showroom/features/panel/presentation/widgets/variants.dart';
 
 class PanelCore extends StatelessWidget {
   @override
@@ -15,82 +17,60 @@ class PanelCore extends StatelessWidget {
           return Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Expanded(
+              CustomImage(
+                path: "assets/" +
+                    (state.selectedVariant?.example ?? "notfound.jpeg"),
+                fit: BoxFit.cover,
+              ),
+              SizedBox(
+                height: 3,
+              ),
+              Column(
+                children: [
+                  TitleDivider(
+                    esp: "colores",
+                    eng: "colors",
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: VariantView(
+                      variants: state.selectedProduct?.variants,
+                      currentVariant: state.selectedVariant,
+                      onTap: (variant) =>
+                          variant.name != state.selectedVariant?.name
+                              ? BlocProvider.of<PanelBloc>(context).add(
+                                  SelectEvent(
+                                    Collection(
+                                      name: state.selectedProduct?.name,
+                                      variantName: variant.name,
+                                      maxLines: 1,
+                                      productId: state.selectedProduct?.id,
+                                    ),
+                                  ),
+                                )
+                              : null,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 3,
+              ),
+              Flexible(
                 child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-              
                   children: [
-                    CustomImage(
-                      path: "assets/" +
-                          (state.selectedVariant?.example ?? "notfound.jpeg"),
-                      fit: BoxFit.cover,
+                    TitleDivider(
+                      esp: "medidas",
+                      eng: "sizes",
+                    ),
+                    // VariantSizes(variant: state.selectedVariant)
+                    Flexible(
+                      child: SingleChildScrollView(
+                        child: VariantSizes(variant: state.selectedVariant),
+                      ),
                     ),
                   ],
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        "Colors".toUpperCase(),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: DinamicSize.fontSize(context, 20),
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 0.2,
-                          fontFamily: 'Montserrat',
-                        ),
-                      ),
-                      Container(
-                        width: 300,
-                        child: Divider(
-                          thickness: 1,
-                          color: Color(0xffA0A1A2),
-                        ),
-                      ),
-                      Variants(
-                        currentVariant: state.selectedVariant,
-                        product: state.selectedProduct,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        "Sizes".toUpperCase(),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: DinamicSize.fontSize(context, 20),
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 0.2,
-                          fontFamily: 'Montserrat',
-                        ),
-                      ),
-                      Container(
-                        width: 300,
-                        child: Divider(
-                          thickness: 1,
-                          color: Color(0xffA0A1A2),
-                        ),
-                      ),
-                      CustomImage(
-                        path: "assets/test.png",
-                        fit: BoxFit.contain,
-                        height: 250.h(context),
-                        width: 800.w(context),
-                      ),
-                    ],
-                  )
-                ],
               ),
             ],
           );

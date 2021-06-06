@@ -1,11 +1,11 @@
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/core/widgets/custom_image.dart';
+import 'package:showroom/core/widgets/title_divider.dart';
 import 'package:showroom/features/products/presentation/bloc/product_bloc.dart';
 import 'package:showroom/core/widgets/variant_view.dart';
-import 'variant_sizes.dart';
+import '../../../../core/widgets/variant_sizes.dart';
 
 class ProductView extends StatelessWidget {
   @override
@@ -29,7 +29,7 @@ class ProductView extends StatelessWidget {
                     aspectRatio: 1 / 1,
                     child: CustomImage(
                       path: "assets/" +
-                          (state?.selectedVariant?.img ?? "notfound.jpeg"),
+                          (state?.selectedVariant?.example ?? "notfound.jpeg"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -44,7 +44,7 @@ class ProductView extends StatelessWidget {
                   children: [
                     Column(
                       children: [
-                        _TitleDivider(
+                        TitleDivider(
                           esp: "medidas",
                           eng: "sizes",
                         ),
@@ -53,19 +53,22 @@ class ProductView extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        _TitleDivider(
+                        TitleDivider(
                           esp: "colores",
                           eng: "colors",
                         ),
-                        VariantView(
-                          variants: state?.selectedProduct?.variants,
-                          currentVariant: state?.selectedVariant,
-                          onTap: (variant) =>
-                              variant.name != state?.selectedVariant?.name
-                                  ? BlocProvider.of<ProductBloc>(context)
-                                      .add(SetCurrentProductVariant(variant))
-                                  : null,
-                        )
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: VariantView(
+                            variants: state?.selectedProduct?.variants,
+                            currentVariant: state?.selectedVariant,
+                            onTap: (variant) =>
+                                variant.name != state?.selectedVariant?.name
+                                    ? BlocProvider.of<ProductBloc>(context)
+                                        .add(SetCurrentProductVariant(variant))
+                                    : null,
+                          ),
+                        ),
                       ],
                     ),
                   ],
@@ -74,61 +77,5 @@ class ProductView extends StatelessWidget {
             ],
           );
         });
-  }
-}
-
-class _TitleDivider extends StatelessWidget {
-  final String esp;
-  final String? eng;
-
-  const _TitleDivider({required this.esp, this.eng});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              esp + ((eng?.isNotEmpty ?? false) ? " / " : ""),
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                color: Color(0xFF000000),
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
-                fontStyle: FontStyle.normal,
-                letterSpacing: 0.24,
-              ),
-            ),
-            Visibility(
-              visible: (eng?.isNotEmpty ?? false),
-              child: Text(
-                eng ?? " ",
-                style: TextStyle(
-                  color: Color(0xFF000000),
-                  fontSize: 18,
-                  fontWeight: FontWeight.w300,
-                  fontStyle: FontStyle.normal,
-                  letterSpacing: 0.24,
-                ),
-              ),
-            )
-          ],
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-              top: DinamicSize.heightSize(context, 8),
-              bottom: DinamicSize.heightSize(context, 8)),
-          child: Container(
-            color: Color(0xFF000000),
-            height: DinamicSize.heightSize(context, 1),
-          ),
-        ),
-      ],
-    );
   }
 }
