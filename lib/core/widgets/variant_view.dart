@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:showroom/core/widgets/variant_box.dart';
 import 'package:showroom/features/products/domain/entities/variant.dart';
 
 import 'circular_indicator.dart';
@@ -19,58 +20,15 @@ class VariantView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Visibility(
       visible: (variants?.length ?? 0) > 0,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Wrap(
+        // mainAxisAlignment: MainAxisAlignment.start,
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        direction: Axis.horizontal,
         children: variants?.map((variant) {
-              return Padding(
-                padding: const EdgeInsets.only(right: 30),
-                child: InkWell(
-                  onTap: () => onTap(variant),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Visibility(
-                        visible: variant.name == currentVariant?.name,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Color(0xFFB42E2D),
-                              width: 5,
-                            ),
-                          ),
-                          child: CustomImage(
-                            path: "assets/" + (variant.img ?? "notfound.jpeg"),
-                            fit: BoxFit.cover,
-                            height: 50,
-                            width: 50,
-                          ),
-                        ),
-                        replacement: SizedBox(
-                          child: CustomImage(
-                            path: "assets/" + (variant.img ?? "notfound.jpeg"),
-                            fit: BoxFit.cover,
-                            height: 40,
-                            width: 40,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        (variant.name?.toUpperCase() ?? ""),
-                        style: TextStyle(
-                          color: Color(0xFF000000),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w300,
-                          fontStyle: FontStyle.normal,
-                          letterSpacing: 0.24,
-                        ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      )
-                    ],
-                  ),
-                ),
+              return VariantBox(
+                onTap: onTap,
+                currentVariant: currentVariant,
+                variant: variant,
               );
             }).toList() ??
             [],

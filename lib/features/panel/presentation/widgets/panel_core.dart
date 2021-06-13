@@ -26,61 +26,78 @@ class PanelCore extends StatelessWidget {
                 height: 3,
               ),
               Expanded(
-                child: Column(
+                child: Row(
                   children: [
-                    TitleDivider(
-                      esp: "colores",
-                      eng: "colors",
-                    ),
-                    Expanded(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: VariantView(
-                            variants: state.selectedProduct?.variants,
-                            currentVariant: state.selectedVariant,
-                            onTap: (variant) =>
-                                variant.name != state.selectedVariant?.name
-                                    ? BlocProvider.of<PanelBloc>(context).add(
-                                        SelectEvent(
-                                          Collection(
-                                            name: state.selectedProduct?.name,
-                                            variantId: variant.id,
-                                            maxLines: 1,
-                                            productId: state.selectedProduct?.id,
-                                          ),
-                                        ),
-                                      )
-                                    : null,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 3,
-              ),
-              Flexible(
-                child: Column(
-                  children: [
-                    TitleDivider(
-                      esp: "medidas",
-                      eng: "sizes",
-                    ),
-                    // VariantSizes(variant: state.selectedVariant)
                     Flexible(
-                      child: SingleChildScrollView(
-                        child: VariantSizes(variant: state.selectedVariant),
+                      flex: 4,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: _colorsColumn(state, context),
+                      ),
+                    ),
+                    Flexible(
+                      flex: 9,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: _sizesColumn(state),
                       ),
                     ),
                   ],
                 ),
-              ),
+              )
             ],
           );
         });
+  }
+
+  _colorsColumn(PanelState state, BuildContext context) {
+    return Column(
+      children: [
+        TitleDivider(
+          esp: "colores",
+          eng: "colors",
+        ),
+        Flexible(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: VariantView(
+                variants: state.selectedProduct?.variants,
+                currentVariant: state.selectedVariant,
+                onTap: (variant) => variant.name != state.selectedVariant?.name
+                    ? BlocProvider.of<PanelBloc>(context).add(
+                        SelectEvent(
+                          Collection(
+                            name: state.selectedProduct?.name,
+                            variantId: variant.id,
+                            maxLines: 1,
+                            productId: state.selectedProduct?.id,
+                          ),
+                        ),
+                      )
+                    : null,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  _sizesColumn(PanelState state) {
+    return Column(
+      children: [
+        TitleDivider(
+          esp: "medidas",
+          eng: "sizes",
+        ),
+        // VariantSizes(variant: state.selectedVariant)
+        Flexible(
+          child: SingleChildScrollView(
+            child: VariantSizes(variant: state.selectedVariant),
+          ),
+        ),
+      ],
+    );
   }
 }
