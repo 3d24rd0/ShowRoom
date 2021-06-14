@@ -3,7 +3,6 @@ import 'package:showroom/core/widgets/variant_box.dart';
 import 'package:showroom/features/products/domain/entities/variant.dart';
 
 import 'circular_indicator.dart';
-import 'custom_image.dart';
 
 class VariantView extends StatelessWidget {
   final List<Variant>? variants;
@@ -21,8 +20,6 @@ class VariantView extends StatelessWidget {
     return Visibility(
       visible: (variants?.length ?? 0) > 0,
       child: Wrap(
-        // mainAxisAlignment: MainAxisAlignment.start,
-        // crossAxisAlignment: CrossAxisAlignment.center,
         direction: Axis.horizontal,
         children: variants?.map((variant) {
               return VariantBox(

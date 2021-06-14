@@ -43,15 +43,19 @@ class ProductView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
-                      children: [
-                        TitleDivider(
-                          esp: "medidas",
-                          eng: "sizes",
-                        ),
-                        VariantSizes(
-                            variant: state.selectedVariant ?? Variant()),
-                      ],
+                    Flexible(
+                      child: Column(
+                        children: [
+                          TitleDivider(
+                            esp: "medidas",
+                            eng: "sizes",
+                          ),
+                          Flexible(
+                            child: VariantSizes(
+                                variant: state.selectedVariant ?? Variant()),
+                          ),
+                        ],
+                      ),
                     ),
                     Expanded(
                       child: Column(
