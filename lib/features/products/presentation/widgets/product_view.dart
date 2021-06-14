@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
 import 'package:showroom/core/widgets/custom_image.dart';
 import 'package:showroom/core/widgets/title_divider.dart';
+import 'package:showroom/features/products/domain/entities/variant.dart';
 import 'package:showroom/features/products/presentation/bloc/product_bloc.dart';
 import 'package:showroom/core/widgets/variant_view.dart';
 import '../../../../core/widgets/variant_sizes.dart';
@@ -14,7 +15,7 @@ class ProductView extends StatelessWidget {
         buildWhen: (previous, current) =>
             previous.selectedProduct != current.selectedProduct ||
             previous.selectedVariant != current.selectedVariant,
-        builder: (context, ProductState? state) {
+        builder: (context, ProductState state) {
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,7 +30,7 @@ class ProductView extends StatelessWidget {
                     aspectRatio: 1 / 1,
                     child: CustomImage(
                       path: "assets/" +
-                          (state?.selectedVariant?.example ?? "notfound.jpeg"),
+                          (state.selectedVariant?.example ?? "notfound.jpeg"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -48,7 +49,8 @@ class ProductView extends StatelessWidget {
                           esp: "medidas",
                           eng: "sizes",
                         ),
-                        VariantSizes(variant: state?.selectedVariant),
+                        VariantSizes(
+                            variant: state.selectedVariant ?? Variant()),
                       ],
                     ),
                     Expanded(
@@ -64,12 +66,13 @@ class ProductView extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 8.0),
                                 child: VariantView(
-                                  variants: state?.selectedProduct?.variants,
-                                  currentVariant: state?.selectedVariant,
+                                  variants: state.selectedProduct?.variants,
+                                  currentVariant: state.selectedVariant,
                                   onTap: (variant) => variant.name !=
-                                          state?.selectedVariant?.name
+                                          state.selectedVariant?.name
                                       ? BlocProvider.of<ProductBloc>(context)
-                                          .add(SetCurrentProductVariant(variant))
+                                          .add(
+                                              SetCurrentProductVariant(variant))
                                       : null,
                                 ),
                               ),

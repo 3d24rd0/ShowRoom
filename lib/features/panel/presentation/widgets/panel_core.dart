@@ -6,6 +6,7 @@ import 'package:showroom/core/widgets/variant_sizes.dart';
 import 'package:showroom/core/widgets/variant_view.dart';
 import 'package:showroom/features/panel/domain/entities/collection.dart';
 import 'package:showroom/features/panel/presentation/bloc/panel_bloc.dart';
+import 'package:showroom/features/products/domain/entities/variant.dart';
 
 class PanelCore extends StatelessWidget {
   @override
@@ -23,7 +24,7 @@ class PanelCore extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               SizedBox(
-                height: 3,
+                height: 10,
               ),
               Expanded(
                 child: Row(
@@ -93,9 +94,7 @@ class PanelCore extends StatelessWidget {
         ),
         // VariantSizes(variant: state.selectedVariant)
         Flexible(
-          child: SingleChildScrollView(
-            child: VariantSizes(variant: state.selectedVariant),
-          ),
+          child: VariantSizes(variant: state.selectedVariant ?? Variant()),
         ),
       ],
     );

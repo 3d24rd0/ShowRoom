@@ -18,6 +18,7 @@ class PanelPage extends StatelessWidget {
         return Future.value(false); // if true allow back else block it
       },
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: SafeArea(
           child: BlocProvider<PanelBloc>(
             create: (_) => getIt<PanelBloc>()..add(LoadEvent(panelId)),

@@ -38,11 +38,11 @@ class MeasureModel extends Measure {
         "img": img == null ? null : img,
       };
 
-  factory MeasureModel.fromMeasure(Measure measure) => MeasureModel(
-        description: measure.description,
-        ref: measure.ref,
-        height: measure.height,
-        width: measure.height,
-        img: measure.img,
-      );
+  // factory MeasureModel.fromMeasure(Measure measure) => MeasureModel(
+  //       description: measure.description,
+  //       ref: measure.ref,
+  //       height: measure.height,
+  //       width: measure.height,
+  //       img: measure.img,
+  //     );
 }

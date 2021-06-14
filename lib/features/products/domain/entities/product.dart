@@ -1,13 +1,11 @@
-import 'package:meta/meta.dart';
-
 import 'variant.dart';
 
 class Product {
   Product({
-    @required this.id,
-    @required this.name,
-    @required this.description,
-    @required this.variants,
+    this.id,
+    this.name,
+    this.description,
+    this.variants,
   });
 
   final String? id;

@@ -2,7 +2,7 @@ part of 'panel_bloc.dart';
 
 @immutable
 abstract class PanelEvent {
-  Stream<PanelState> applyAsync( PanelState currentState,  PanelBloc bloc);
+  Stream<PanelState> applyAsync(PanelState currentState, PanelBloc bloc);
 }
 
 class LoadEvent extends PanelEvent {
@@ -31,7 +31,7 @@ class LoadEvent extends PanelEvent {
 
     bloc.add(
       SelectEvent(
-        first ,
+        first,
       ),
     );
   }
@@ -58,15 +58,8 @@ class SelectEvent extends PanelEvent {
       selectedProduct: product,
       selectedVariant: product.variants?.firstWhere(
         (element) =>
-            element.name?.toLowerCase() ==
-            collection.variantId?.toLowerCase(),
-        orElse: () => Variant(
-          id: null,
-          img: null,
-          example: null,
-          name: null,
-          measures: null,
-        ),
+            element.name?.toLowerCase() == collection.variantId?.toLowerCase(),
+        orElse: () => Variant(),
       ),
     );
   }
