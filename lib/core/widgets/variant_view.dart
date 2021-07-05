@@ -30,7 +30,7 @@ class VariantView extends StatelessWidget {
             }).toList() ??
             [],
       ),
-      replacement: CircularIndicator(),
+      // replacement: CircularIndicator(),
     );
   }
 }

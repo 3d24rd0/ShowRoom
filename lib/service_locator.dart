@@ -12,6 +12,10 @@ import 'package:showroom/features/products/domain/usecases/get_colletion_usecase
 import 'package:showroom/features/products/domain/usecases/get_products_usecase.dart';
 import 'package:showroom/features/products/presentation/bloc/product_bloc.dart';
 
+import 'features/futuristic/data/repositories/futuristic_repository_asset_json.dart';
+import 'features/futuristic/domain/repositories/futuristic_repository.dart';
+import 'features/futuristic/domain/usecases/get_materials_usecase.dart';
+import 'features/futuristic/presentation/bloc/futuristic_bloc.dart';
 import 'features/multiTouch/presentation/bloc/multitouch_bloc.dart';
 
 GetIt getIt = GetIt.I;
@@ -23,6 +27,7 @@ Future<void> setUpLocator() async {
   _hallFeature();
   _panelsFeature();
   _multiTouchFeature();
+  _tvFeature();
 }
 
 void _core() {
@@ -33,6 +38,7 @@ void _core() {
     () => AssetsDatasourceImpl(
       productsPatch: 'assets/products.json',
       panelPatch: 'assets/panel{id}.json',
+      tvPatch: 'assets/tv.json',
     ),
   );
 }
@@ -79,10 +85,30 @@ void _panelsFeature() {
     ),
   );
 }
+
 void _multiTouchFeature() {
   //Bloc
   getIt.registerFactory(
     () => MultitouchBloc(getIt()),
   );
+}
 
+void _tvFeature() {
+  //Bloc
+  getIt.registerFactory(
+    () => FuturisticBloc(
+      getIt(),
+      getIt(),
+    ),
+  );
+
+  // Use cases
+  getIt.registerLazySingleton<GetMaterialsUsecase>(
+      () => GetMaterialsUsecase(repository: getIt()));
+  // Repository
+  getIt.registerLazySingleton<FuturisticRepository>(
+    () => FuturisticRepositoryAssetJson(
+      assetsDatasource: getIt(),
+    ),
+  );
 }

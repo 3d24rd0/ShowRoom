@@ -11,7 +11,7 @@ class HallPage extends StatelessWidget {
     Machine(id: '1', type: MachineType.panels, name: "Pasillo 1"),
     // Machine(id: '2', type: MachineType.panels, name: "Pasillo 2"),
     Machine(id: '3', type: MachineType.totem, name: "Entrada"),
-    Machine(id: '4', type: MachineType.multiTouch, name: "TV"),
+    Machine(id: '4', type: MachineType.futuristic, name: "TV"),
   ];
 
   void onTab(int index, BuildContext context) {
@@ -29,7 +29,9 @@ class HallPage extends StatelessWidget {
         break;
       case MachineType.multiTouch:
         BlocProvider.of<HallBloc>(context).add(NavigateToMultiTouchEvent());
-
+        break;
+      case MachineType.futuristic:
+        BlocProvider.of<HallBloc>(context).add(NavigateToFuturisticEvent());
         break;
     }
   }

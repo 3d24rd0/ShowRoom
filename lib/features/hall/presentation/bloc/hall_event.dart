@@ -40,3 +40,9 @@ class NavigateToMultiTouchEvent extends HallEvent {
     getIt<RouterBloc>().add(MultiTouchEvent());
   }
 }
+class NavigateToFuturisticEvent extends HallEvent {
+  @override
+  Stream<HallState> applyAsync({currentState, bloc}) async* {
+    getIt<RouterBloc>().add(FuturisticEvent());
+  }
+}

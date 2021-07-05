@@ -1,3 +1,3 @@
 enum MachineType {  
-   totem,panels,products,multiTouch
+   totem,panels,products,multiTouch,futuristic
 }

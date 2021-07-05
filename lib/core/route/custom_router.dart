@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:showroom/features/futuristic/presentation/pages/futuristic_page.dart';
 import 'package:showroom/features/hall/presentation/pages/hall_page.dart';
 import 'package:showroom/features/multiTouch/presentation/pages/multi_user_page.dart';
 import 'package:showroom/features/panel/presentation/pages/panel_page.dart';
@@ -11,6 +12,7 @@ class CustomRouter {
   static const totem = "/totem";
   static const panel = "/panel";
   static const multitouch = "/multitouch";
+  static const futuristic = "/futuristic";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -38,6 +40,10 @@ class CustomRouter {
       case CustomRouter.multitouch:
         return MaterialPageRoute(
           builder: (_) => MultiUserPage(),
+        );
+      case CustomRouter.futuristic:
+        return MaterialPageRoute(
+          builder: (_) => FuturisticPage(),
         );
       default:
         return MaterialPageRoute(builder: (_) => Container());
