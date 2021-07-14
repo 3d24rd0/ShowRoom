@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
+import 'package:draw_your_image/draw_your_image.dart';
 import 'package:meta/meta.dart';
 import 'package:showroom/core/domain/entities/usecase.dart';
 import 'package:showroom/features/futuristic/domain/entities/material_list.dart';

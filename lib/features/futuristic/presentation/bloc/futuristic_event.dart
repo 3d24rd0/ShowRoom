@@ -35,7 +35,11 @@ class SelectMaterialEvent extends FuturisticEvent {
     FuturisticState currentState,
     FuturisticBloc bloc,
   ) async* {
-    yield bloc.state.copyWith(selectedProducsId: products, variants: List.empty());
+    yield bloc.state
+        .copyWith(selectedProducsId: List.empty(), variants: List.empty());
+    await Future.delayed(Duration(milliseconds: 500));
+    yield bloc.state
+        .copyWith(selectedProducsId: products, variants: List.empty());
   }
 }
 
@@ -49,6 +53,24 @@ class SelectProductEvent extends FuturisticEvent {
     FuturisticState currentState,
     FuturisticBloc bloc,
   ) async* {
+    yield bloc.state.copyWith(variants: List.empty());
+
+    await Future.delayed(Duration(microseconds: 300));
+
     yield bloc.state.copyWith(variants: product?.variants);
+  }
+}
+
+class ShowNotesEvent extends FuturisticEvent {
+  final bool show;
+
+  ShowNotesEvent(this.show);
+
+  @override
+  Stream<FuturisticState> applyAsync(
+    FuturisticState currentState,
+    FuturisticBloc bloc,
+  ) async* {
+    yield bloc.state.copyWith(showNotes: show);
   }
 }
