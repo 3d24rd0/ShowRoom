@@ -21,6 +21,8 @@ class LoadEvent extends FuturisticEvent {
     yield InitializedState(
       materiales: materials.materiales ?? List.empty(),
       products: products,
+      //selectedProducsId: materials.materiales?.first.products,
+      variants: List.empty()
     );
   }
 }
@@ -53,9 +55,7 @@ class SelectProductEvent extends FuturisticEvent {
     FuturisticState currentState,
     FuturisticBloc bloc,
   ) async* {
-    yield bloc.state.copyWith(variants: List.empty());
-
-    await Future.delayed(Duration(microseconds: 300));
+  
 
     yield bloc.state.copyWith(variants: product?.variants);
   }

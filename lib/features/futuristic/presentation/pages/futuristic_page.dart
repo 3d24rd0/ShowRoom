@@ -2,6 +2,7 @@ import 'package:draw_your_image/draw_your_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:showroom/core/tools/dinamic_size.dart';
+import 'package:showroom/core/widgets/circular_indicator.dart';
 import 'package:showroom/core/widgets/custom_image.dart';
 import 'package:showroom/core/widgets/title_divider.dart';
 import 'package:showroom/core/widgets/variant_sizes.dart';
@@ -25,7 +26,7 @@ class FuturisticPage extends StatelessWidget {
             create: (context) => bloc..add(LoadEvent()),
             child: BlocBuilder<FuturisticBloc, FuturisticState>(
                 buildWhen: (previous, current) =>
-                    previous.showNotes != current.showNotes,
+                    previous.showNotes != current.showNotes || previous.runtimeType != current.runtimeType, 
                 builder: (context, state) {
                   return Stack(
                     children: [
@@ -47,7 +48,18 @@ class FuturisticPage extends StatelessWidget {
                       _Pizarra(
                         height: (state.showNotes == true) ? (800 * 0.8) : 1,
                         width: (state.showNotes == true) ? (800 * 0.8) : 1,
-                      )
+                      ),
+                      Visibility(
+                            visible: state.runtimeType != InitializedState,
+                            child: Positioned.fill(
+                              child: Container(
+                                color: Color(0xECA0A1A2),
+                                child: Center(
+                                  child: CircularIndicator(),
+                                ),
+                              ),
+                            ),
+                          )
                     ],
                   );
                 })),
@@ -235,7 +247,7 @@ class _Products extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: AnimatedContainer(
                         color: Color(0xffA0A1A2),
-                        duration: Duration(seconds: 1),
+                        duration: Duration(milliseconds: 500),
                         height:
                                 (state.variants?.isEmpty == true) ? 0 : 400,
                         child: Row(
