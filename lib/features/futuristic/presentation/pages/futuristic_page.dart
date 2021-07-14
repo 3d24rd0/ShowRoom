@@ -13,7 +13,11 @@ import 'package:showroom/features/products/domain/entities/variant.dart';
 import '../../../../service_locator.dart';
 
 class FuturisticPage extends StatelessWidget {
-  final bloc = getIt<FuturisticBloc>();
+  final _Body user1 = _Body();
+  final _Body user2 = _Body();
+  final _Body user3 = _Body();
+  final _Body user4 = _Body();
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -21,50 +25,96 @@ class FuturisticPage extends StatelessWidget {
         return Future.value(false); // if true allow back else block it
       },
       child: Scaffold(
-        backgroundColor: Color(0xff3C3E3F),
-        body: BlocProvider(
-            create: (context) => bloc..add(LoadEvent()),
-            child: BlocBuilder<FuturisticBloc, FuturisticState>(
-                buildWhen: (previous, current) =>
-                    previous.showNotes != current.showNotes || previous.runtimeType != current.runtimeType, 
-                builder: (context, state) {
-                  return Stack(
-                    children: [
-                      _Products(),
-                      Visibility(
-                        visible: state.showNotes == true,
-                        child: Positioned.fill(
-                          child: InkWell(
-                            onTap: () =>
-                                BlocProvider.of<FuturisticBloc>(context).add(
-                              ShowNotesEvent(false),
-                            ),
-                            child: Container(
-                              color: Color(0xECA0A1A2),
-                            ),
-                          ),
+          backgroundColor: Color(0xff3C3E3F),
+          body: Column(
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: RotatedBox(quarterTurns: 2, child: user1),
+                    ),
+                    Container(
+                      width: 5,
+                      color: Colors.black,
+                    ),
+                    Expanded(
+                      child: RotatedBox(quarterTurns: 2, child: user2),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: 5,
+                color: Colors.black,
+              ),
+              Expanded(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: user3,
+                    ),
+                    Container(
+                      width: 5,
+                      color: Colors.black,
+                    ),
+                    Expanded(
+                      child: user4,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )),
+    );
+  }
+}
+
+class _Body extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+        create: (context) => getIt<FuturisticBloc>()..add(LoadEvent()),
+        child: BlocBuilder<FuturisticBloc, FuturisticState>(
+            buildWhen: (previous, current) =>
+                previous.showNotes != current.showNotes ||
+                previous.runtimeType != current.runtimeType,
+            builder: (context, state) {
+              return Stack(
+                children: [
+                  _Products(),
+                  Visibility(
+                    visible: state.showNotes == true,
+                    child: Positioned.fill(
+                      child: InkWell(
+                        onTap: () =>
+                            BlocProvider.of<FuturisticBloc>(context).add(
+                          ShowNotesEvent(false),
+                        ),
+                        child: Container(
+                          color: Color(0xECA0A1A2),
                         ),
                       ),
-                      _Pizarra(
-                        height: (state.showNotes == true) ? (800 * 0.8) : 1,
-                        width: (state.showNotes == true) ? (800 * 0.8) : 1,
+                    ),
+                  ),
+                  _Pizarra(
+                    height: (state.showNotes == true) ? (400 * 0.8) : 1,
+                    width: (state.showNotes == true) ? (400 * 0.8) : 1,
+                  ),
+                  Visibility(
+                    visible: state.runtimeType != InitializedState,
+                    child: Positioned.fill(
+                      child: Container(
+                        color: Color(0xECA0A1A2),
+                        child: Center(
+                          child: CircularIndicator(),
+                        ),
                       ),
-                      Visibility(
-                            visible: state.runtimeType != InitializedState,
-                            child: Positioned.fill(
-                              child: Container(
-                                color: Color(0xECA0A1A2),
-                                child: Center(
-                                  child: CircularIndicator(),
-                                ),
-                              ),
-                            ),
-                          )
-                    ],
-                  );
-                })),
-      ),
-    );
+                    ),
+                  )
+                ],
+              );
+            }));
   }
 }
 
@@ -87,7 +137,7 @@ class _Pizarra extends StatelessWidget {
           // controller: state.controller,
           backgroundColor: Color(0xFF4D4D4D),
           strokeColor: Colors.white,
-          strokeWidth: 8,
+          strokeWidth: 4,
           isErasing: false,
           // onConvertImage: (imageData) {
           //   print("hello");
@@ -120,22 +170,26 @@ class _Products extends StatelessWidget {
                       },
                       itemCount: state.materiales?.length ?? 0,
                       itemBuilder: (context, index) {
+                        final material = (state.materiales?[index].name ?? "");
                         return InkWell(
                           onTap: () {
                             BlocProvider.of<FuturisticBloc>(context).add(
                                 SelectMaterialEvent(
-                                    state.materiales?[index].products));
+                                    state.materiales?[index].products,
+                                    material));
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Container(
                               child: Center(
-                                  child: Text(
-                                      state.materiales?[index].name ?? "")),
-                              height: 50,
+                                child: Text(material),
+                              ),
+                              height: 25,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
-                                color: Color(0xffA0A1A2),
+                                borderRadius: BorderRadius.circular(12.5),
+                                color: state.selectedMaterial == material
+                                    ? Color(0xffffffff)
+                                    : Color(0xffA0A1A2),
                               ),
                             ),
                           ),
@@ -149,12 +203,12 @@ class _Products extends StatelessWidget {
                           .add(ShowNotesEvent(true));
                     },
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(4.0),
                       child: Container(
                         child: Center(child: Text("Notas")),
-                        height: 50,
+                        height: 25,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
+                          borderRadius: BorderRadius.circular(12),
                           color: Color(0xffA0A1A2),
                         ),
                       ),
@@ -164,7 +218,7 @@ class _Products extends StatelessWidget {
               ),
             ),
             Flexible(
-              flex: 9,
+              flex: 13,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -223,7 +277,7 @@ class _Products extends StatelessWidget {
                                             style: TextStyle(
                                               color: Color(0xffA0A1A2),
                                               fontSize: DinamicSize.fontSize(
-                                                  context, 32),
+                                                  context, 15),
                                               fontWeight: FontWeight.w300,
                                               letterSpacing: 0.2,
                                               fontFamily: 'Montserrat',
@@ -248,21 +302,12 @@ class _Products extends StatelessWidget {
                       child: AnimatedContainer(
                         color: Color(0xffA0A1A2),
                         duration: Duration(milliseconds: 500),
-                        height:
-                                (state.variants?.isEmpty == true) ? 0 : 400,
+                        height: (state.variants?.isEmpty == true) ? 0 : 200,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  top: DinamicSize.heightSize(context, 30)),
-                              child: SizedBox(
-                                height: DinamicSize.heightSize(context, 550),
-                                width: DinamicSize.widthSize(context, 550),
-                                child: AspectRatio(
-                                  aspectRatio: 1 / 1,
-                                  child: state.variants?.isNotEmpty == true
+                              state.variants?.isNotEmpty == true
                                       ? CustomImage(
                                           path: "assets/" +
                                               (state.variants?.first.example ??
@@ -270,11 +315,11 @@ class _Products extends StatelessWidget {
                                           fit: BoxFit.cover,
                                         )
                                       : Container(),
-                                ),
-                              ),
-                            ),
+                                
+                              
+                            
                             SizedBox(
-                              width: DinamicSize.widthSize(context, 750),
+                              width: DinamicSize.widthSize(context, 400),
                               // height: DinamicSize.heightSize(context, 500),
                               child: Column(
                                 mainAxisAlignment:

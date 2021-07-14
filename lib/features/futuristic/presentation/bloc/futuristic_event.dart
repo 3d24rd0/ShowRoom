@@ -29,8 +29,9 @@ class LoadEvent extends FuturisticEvent {
 
 class SelectMaterialEvent extends FuturisticEvent {
   final List<String>? products;
+  final String name;
 
-  SelectMaterialEvent(this.products);
+  SelectMaterialEvent(this.products, this.name);
 
   @override
   Stream<FuturisticState> applyAsync(
@@ -41,7 +42,7 @@ class SelectMaterialEvent extends FuturisticEvent {
         .copyWith(selectedProducsId: List.empty(), variants: List.empty());
     await Future.delayed(Duration(milliseconds: 500));
     yield bloc.state
-        .copyWith(selectedProducsId: products, variants: List.empty());
+        .copyWith(selectedProducsId: products, variants: List.empty(), selectedMaterial: name);
   }
 }
 

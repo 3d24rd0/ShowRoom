@@ -7,7 +7,7 @@ abstract class FuturisticState {
   final List<Product>? products;
   final List<Variant>? variants;
   final bool? showNotes;
-  final DrawController controller = DrawController();
+  final String? selectedMaterial;
 
   FuturisticState({
     required this.materiales,
@@ -15,6 +15,7 @@ abstract class FuturisticState {
     required this.products,
     required this.variants,
     required this.showNotes,
+    required this.selectedMaterial,
   });
 
   FuturisticState copyWith({
@@ -23,6 +24,7 @@ abstract class FuturisticState {
     List<Product>? products,
     List<Variant>? variants,
     bool? showNotes,
+    String? selectedMaterial,
   });
 }
 
@@ -34,6 +36,7 @@ class UninitializedState extends FuturisticState {
           products: null,
           variants: null,
           showNotes: false,
+          selectedMaterial: null,
         );
 
   UninitializedState.withData({
@@ -42,12 +45,14 @@ class UninitializedState extends FuturisticState {
     List<Product>? products,
     List<Variant>? variants,
     bool? showNotes,
+    String? selectedMaterial,
   }) : super(
           materiales: materiales,
           selectedProducsId: selectedProducsId,
           products: products,
           variants: variants,
           showNotes: showNotes,
+          selectedMaterial: selectedMaterial,
         );
 
   @override
@@ -57,6 +62,7 @@ class UninitializedState extends FuturisticState {
     List<Product>? products,
     List<Variant>? variants,
     bool? showNotes,
+    String? selectedMaterial,
   }) =>
       UninitializedState.withData(
         materiales: materiales ?? this.materiales,
@@ -64,6 +70,7 @@ class UninitializedState extends FuturisticState {
         products: products ?? this.products,
         variants: variants ?? this.variants,
         showNotes: showNotes ?? this.showNotes,
+        selectedMaterial: selectedMaterial ?? this.selectedMaterial,
       );
 }
 
@@ -74,12 +81,14 @@ class InitializedState extends FuturisticState {
     List<Product>? products,
     List<Variant>? variants,
     bool? showNotes,
+    String? selectedMaterial,
   }) : super(
           materiales: materiales,
           selectedProducsId: selectedProducsId,
           products: products,
           variants: variants,
           showNotes: showNotes,
+          selectedMaterial: selectedMaterial,
         );
 
   @override
@@ -89,6 +98,7 @@ class InitializedState extends FuturisticState {
     List<Product>? products,
     List<Variant>? variants,
     bool? showNotes,
+    String? selectedMaterial,
   }) =>
       InitializedState(
         materiales: materiales ?? this.materiales,
@@ -96,5 +106,6 @@ class InitializedState extends FuturisticState {
         products: products ?? this.products,
         variants: variants ?? this.variants,
         showNotes: showNotes ?? this.showNotes,
+        selectedMaterial: selectedMaterial ?? this.selectedMaterial,
       );
 }
